@@ -37,36 +37,35 @@ struct ToDoListRow: View {
                     .font(.title2)
                 Text(toDoItem.description)
                     .font(.title3)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.gray)
+                Spacer()
                 HStack {
                     Text("created Date:")
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+                        .font(.subheadline)
                     Text(toDoItem.createdDate)
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+                        .font(.subheadline)
                 }
                 HStack {
                     Text("Due Date:")
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+                        .font(.subheadline)
+                        .foregroundColor(.red)
                     Text(toDoItem.dueDate)
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+                        .font(.subheadline)
+                        .foregroundColor(.red)
                 }
                 HStack {
                     Text("Location:")
-                        .font(.title3)
+                        .font(.subheadline)
                         .foregroundColor(.secondary)
                     Text(toDoItem.location)
-                        .font(.title3)
+                        .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 
             }
             .fixedSize(horizontal: false, vertical: true)
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 12)
     }
 }
 
