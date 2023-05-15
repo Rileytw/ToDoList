@@ -10,10 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            ToDoListRow(toDoItem: ToDoItem())
-                .navigationTitle("To Do List")
+            List(ToDoList().sortedList, id: \.title) { item in
+                ToDoListRow(toDoItem: item)
+                    .navigationTitle("To Do List")
+            }
         }
-        
     }
 }
 
@@ -54,7 +55,7 @@ struct ToDoListRow: View {
                 }
                 
             }
-            .lineLimit(1)
+            .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, 8)
     }
