@@ -35,6 +35,7 @@ struct ContentView: View {
 
 struct ToDoListRow: View {
     let toDoItem: ToDoItem
+    private let viewModel = ToDoListViewModel()
     
     var body: some View {
         HStack {
@@ -48,14 +49,14 @@ struct ToDoListRow: View {
                 HStack {
                     Text("created Date:")
                         .font(.subheadline)
-                    Text(toDoItem.createdDate)
+                    Text(viewModel.dateToString(toDoItem.createdDate))
                         .font(.subheadline)
                 }
                 HStack {
                     Text("Due Date:")
                         .font(.subheadline)
                         .foregroundColor(.red)
-                    Text(toDoItem.dueDate)
+                    Text(viewModel.dateToString(toDoItem.dueDate))
                         .font(.subheadline)
                         .foregroundColor(.red)
                 }

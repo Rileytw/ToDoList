@@ -10,11 +10,11 @@ import Foundation
 struct ToDoItem: Hashable {
     var title: String
     var description: String
-    var createdDate: String
-    var dueDate: String
+    var createdDate: Date
+    var dueDate: Date
     var location : String
     
-    init(title: String = "Title", description: String = "Description", createdDate: String = "2023/05/15", dueDate: String = "2023/05/16", location: String = "TestLocation") {
+    init(title: String = "Title", description: String = "Description", createdDate: Date = Date(), dueDate: Date = Date(), location: String = "TestLocation") {
         self.title = title
         self.description = description
         self.createdDate = createdDate

@@ -21,4 +21,11 @@ class ToDoListViewModel {
     func addNewItem(title: String, description: String, createdDate: Date, dueDate: Date, location: String) {
        
     }
+    
+    func dateToString(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
 }
