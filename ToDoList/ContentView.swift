@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            ToDoListRow(toDoList: ToDoList())
+            ToDoListRow(toDoItem: ToDoItem())
                 .navigationTitle("To Do List")
         }
         
@@ -18,21 +18,21 @@ struct ContentView: View {
 }
 
 struct ToDoListRow: View {
-    let toDoList: ToDoList
+    let toDoItem: ToDoItem
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(toDoList.title)
+                Text(toDoItem.title)
                     .font(.title2)
-                Text(toDoList.description)
+                Text(toDoItem.description)
                     .font(.title3)
                     .foregroundColor(.secondary)
                 HStack {
                     Text("created Date:")
                         .font(.title3)
                         .foregroundColor(.secondary)
-                    Text(toDoList.createdDate)
+                    Text(toDoItem.createdDate)
                         .font(.title3)
                         .foregroundColor(.secondary)
                 }
@@ -40,7 +40,7 @@ struct ToDoListRow: View {
                     Text("Due Date:")
                         .font(.title3)
                         .foregroundColor(.secondary)
-                    Text(toDoList.dueDate)
+                    Text(toDoItem.dueDate)
                         .font(.title3)
                         .foregroundColor(.secondary)
                 }
@@ -48,7 +48,7 @@ struct ToDoListRow: View {
                     Text("Location:")
                         .font(.title3)
                         .foregroundColor(.secondary)
-                    Text(toDoList.location)
+                    Text(toDoItem.location)
                         .font(.title3)
                         .foregroundColor(.secondary)
                 }
@@ -67,18 +67,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct ToDoList {
-    var title: String
-    var description: String
-    var createdDate: String
-    var dueDate: String
-    var location : String
-    
-    init(title: String = "Title", description: String = "Description", createdDate: String = "2023/05/15", dueDate: String = "2023/05/16", location: String = "TestLocation") {
-        self.title = title
-        self.description = description
-        self.createdDate = createdDate
-        self.dueDate = dueDate
-        self.location = location
-    }
-}
