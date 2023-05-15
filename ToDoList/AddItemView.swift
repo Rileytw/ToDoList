@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct AddItemView: View {
     @State private var title = ""
     @State private var description = ""
     @State private var location = ""
+    private var defaultLocation2: String = ""
     @State private var createdDate = Date()
     @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     @State private var isSaved = false
     @Environment(\.dismiss) var dismiss    
     @EnvironmentObject var viewModel: ToDoListViewModel
+    @StateObject var locationManager = LocationManager()
     
     var body: some View {
         NavigationView {
@@ -51,7 +54,13 @@ struct AddItemView: View {
                     Text("Location")
                         .font(.title3)
                         .bold()
-                    TextField("Location...", text: $location)
+                    if locationManager.location != nil {
+                        let defaultLocationString = getDefaultLocationString()
+                        TextField("Location: \(defaultLocationString)", text: $location)
+                    } else {
+                        TextField("Location...", text: $location)
+                    }
+
                     Divider()
                 }
                 Spacer()
@@ -67,17 +76,36 @@ struct AddItemView: View {
                     action: { addNewItem() },
                     label: { Text("Save") })
             )
+            .onAppear {
+                locationManager.requestLocation()
+            }
         }
     }
     
     private func addNewItem() {
+        let defaultLocationString = getDefaultLocationString()
+        
         let newItem = ToDoItem(title: title,
                                description: description,
                                createdDate: createdDate,
                                dueDate: dueDate,
-                               location: location)
+                               location: defaultLocationString)
         viewModel.addNewItem(newItem: newItem)
         dismiss()
+    }
+    
+    private func getCurrectLocation() {
+        locationManager.requestLocation()
+    }
+    
+    private func getDefaultLocationString() -> String {
+        
+        guard let defaultLocation = locationManager.location else { return "" }
+        
+        let latitudeString = String(defaultLocation.latitude)
+        let longitudeString = String(defaultLocation.longitude)
+        var defaultLocationString = latitudeString + "," + longitudeString
+        return defaultLocationString
     }
 }
 
