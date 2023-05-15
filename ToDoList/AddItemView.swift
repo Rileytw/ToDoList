@@ -17,30 +17,47 @@ struct AddItemView: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Item Information")) {
-                    TextField("Title", text: $title)
-                    TextField("Description", text: $description)
+            VStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading) {
+                    Text("Title")
+                        .font(.title3)
+                        .bold()
+                    TextField("Title...", text: $title)
+                    Divider()
                 }
                 
-                Section(header: Text("Date")) {
-                    DatePicker(
-                        selection: $createdDate,
-                        displayedComponents: .date) {
-                            Text("Created Date").foregroundColor(Color(.gray))
-                        }
-                    
-                    DatePicker(
-                        selection: $dueDate,
-                        displayedComponents: .date) {
-                            Text("Due Date").foregroundColor(Color(.gray))
-                        }
+                VStack(alignment: .leading) {
+                    Text("Description")
+                        .font(.title3)
+                        .bold()
+                    TextField("Description...", text: $description)
+                    Divider()
                 }
-                
-                Section(header: Text("Location")) {
-                    TextField("Location", text: $location)
+
+                DatePicker(
+                    selection: $createdDate,
+                    displayedComponents: .date) {
+                        Text("Created Date").foregroundColor(Color(.gray))
+                    }
+                DatePicker(
+                    selection: $dueDate,
+                    displayedComponents: .date) {
+                        Text("Due Date").foregroundColor(Color(.gray))
+                    }
+
+                VStack(alignment: .leading) {
+                    Text("Location")
+                        .font(.title3)
+                        .bold()
+                    TextField("Location...", text: $location)
+                    Divider()
                 }
+                Spacer()
             }
+            .frame(maxWidth: .infinity, alignment: .top)
+            .padding()
+            
+
             .navigationBarTitle(Text("Add To Do Item"),
                                 displayMode: .inline)
             .navigationBarItems(
