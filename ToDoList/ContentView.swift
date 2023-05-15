@@ -12,14 +12,16 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(ToDoList().sortedList, id: \.title) { item in
-                ToDoListRow(toDoItem: item)
-                    .navigationTitle("To Do List")
-                    .navigationBarItems(
-                        trailing: Button(
-                            action: { self.isPresented.toggle() },
-                            label: { Image(systemName: "plus") })
-                    )
+            List {
+                ForEach(ToDoList().sortedList, id: \.title) { item in
+                    ToDoListRow(toDoItem: item)
+                        .navigationTitle("To Do List")
+                        .navigationBarItems(
+                            trailing: Button(
+                                action: { self.isPresented.toggle() },
+                                label: { Image(systemName: "plus") })
+                        )
+                }
             }
         }
     }
