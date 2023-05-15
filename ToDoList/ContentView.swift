@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isPresented = false
+    @State private var isPresented = false
     
     var body: some View {
         NavigationView {
@@ -17,9 +17,14 @@ struct ContentView: View {
                     ToDoListRow(toDoItem: item)
                         .navigationTitle("To Do List")
                         .navigationBarItems(
-                            trailing: Button(
-                                action: { self.isPresented.toggle() },
-                                label: { Image(systemName: "plus") })
+                            trailing: Button(action: {
+                            self.isPresented = true
+                        }) {
+                            Image(systemName: "plus")
+                        }
+                            .sheet(isPresented: $isPresented) {
+                                AddItemView()
+                            }
                         )
                 }
             }
