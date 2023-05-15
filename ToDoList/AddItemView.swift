@@ -13,7 +13,9 @@ struct AddItemView: View {
     @State private var location = ""
     @State private var createdDate = Date()
     @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-    @State private var isPresented = false
+    @State private var isSaved = false
+    @Environment(\.dismiss) var dismiss    
+    @EnvironmentObject var viewModel: ToDoListViewModel
     
     var body: some View {
         NavigationView {
@@ -33,7 +35,7 @@ struct AddItemView: View {
                     TextField("Description...", text: $description)
                     Divider()
                 }
-
+                
                 DatePicker(
                     selection: $createdDate,
                     displayedComponents: .date) {
@@ -44,7 +46,7 @@ struct AddItemView: View {
                     displayedComponents: .date) {
                         Text("Due Date").foregroundColor(Color(.gray))
                     }
-
+                
                 VStack(alignment: .leading) {
                     Text("Location")
                         .font(.title3)
@@ -57,20 +59,31 @@ struct AddItemView: View {
             .frame(maxWidth: .infinity, alignment: .top)
             .padding()
             
-
+            
             .navigationBarTitle(Text("Add To Do Item"),
                                 displayMode: .inline)
             .navigationBarItems(
                 trailing: Button(
-                    action: { self.isPresented.toggle() },
+                    action: { addNewItem() },
                     label: { Text("Save") })
             )
         }
+    }
+    
+    private func addNewItem() {
+        let newItem = ToDoItem(title: title,
+                               description: description,
+                               createdDate: createdDate,
+                               dueDate: dueDate,
+                               location: location)
+        viewModel.addNewItem(newItem: newItem)
+        dismiss()
     }
 }
 
 struct AddItemView_Previews: PreviewProvider {
     static var previews: some View {
         AddItemView()
+            .environmentObject(ToDoListViewModel())
     }
 }

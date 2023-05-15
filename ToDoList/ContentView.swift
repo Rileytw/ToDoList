@@ -9,26 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isPresented = false
-    private let viewModel = ToDoListViewModel()
-    
+    @EnvironmentObject var viewModel: ToDoListViewModel
+
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.sortedList, id: \.self) { item in
                     ToDoListRow(toDoItem: item)
-                        .navigationTitle("To Do List")
-                        .navigationBarItems(
-                            trailing: Button(action: {
-                            self.isPresented = true
-                        }) {
-                            Image(systemName: "plus")
-                        }
-                            .sheet(isPresented: $isPresented) {
-                                AddItemView()
-                            }
-                        )
                 }
             }
+            .navigationTitle("To Do List")
+            .navigationBarItems(
+                trailing: Button(action: {
+                self.isPresented = true
+            }) {
+                Image(systemName: "plus")
+            }
+                .sheet(isPresented: $isPresented) {
+                    AddItemView()
+                }
+            )
         }
     }
 }
@@ -80,6 +80,7 @@ struct ToDoListRow: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ToDoListViewModel())
     }
 }
 
