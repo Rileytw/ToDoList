@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		353699922A122F8C0069E151 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353699912A122F8C0069E151 /* LocationManager.swift */; };
 		35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
 		35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D852A11FDD8005E96CE /* AddItemView.swift */; };
 		35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		353699912A122F8C0069E151 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		353699932A1230480069E151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		35CA4D832A11E462005E96CE /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		35CA4D852A11FDD8005E96CE /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
@@ -57,11 +60,13 @@
 		35E70B692A114BC500B6BF57 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				353699932A1230480069E151 /* Info.plist */,
 				35E70B6A2A114BC500B6BF57 /* ToDoListApp.swift */,
 				35E70B6C2A114BC500B6BF57 /* ContentView.swift */,
 				35CA4D852A11FDD8005E96CE /* AddItemView.swift */,
 				35CA4D832A11E462005E96CE /* ToDoItem.swift */,
 				35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */,
+				353699912A122F8C0069E151 /* LocationManager.swift */,
 				35E70B6E2A114BC600B6BF57 /* Assets.xcassets */,
 				35E70B702A114BC600B6BF57 /* Preview Content */,
 			);
@@ -148,6 +153,7 @@
 			files = (
 				35E70B6D2A114BC500B6BF57 /* ContentView.swift in Sources */,
 				35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */,
+				353699922A122F8C0069E151 /* LocationManager.swift in Sources */,
 				35E70B6B2A114BC500B6BF57 /* ToDoListApp.swift in Sources */,
 				35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */,
 				35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */,
@@ -282,6 +288,8 @@
 				DEVELOPMENT_TEAM = 96D753D9GJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDoList/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs your location when adding to do list item";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,6 +319,8 @@
 				DEVELOPMENT_TEAM = 96D753D9GJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDoList/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs your location when adding to do list item";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
