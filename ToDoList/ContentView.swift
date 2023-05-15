@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isPresented = false
+    private let viewModel = ToDoListViewModel()
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(ToDoList().sortedList, id: \.self) { item in
+                ForEach(viewModel.sortedList, id: \.self) { item in
                     ToDoListRow(toDoItem: item)
                         .navigationTitle("To Do List")
                         .navigationBarItems(

@@ -22,13 +22,3 @@ struct ToDoItem: Hashable {
         self.location = location
     }
 }
-
-struct ToDoList {
-    var sortedList: [ToDoItem] { toDoListCache }
-    
-    private var toDoListCache: [ToDoItem] = [
-        .init(title: "See a doctor", description: "Take the Bus 123"),
-        .init(title: "Do the laundry", description: "Must done today!"),
-        .init(title: "Send the parcel", description: "To Tom")
-    ]
-}
