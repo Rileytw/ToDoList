@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(ToDoList().sortedList, id: \.title) { item in
+                ForEach(ToDoList().sortedList, id: \.self) { item in
                     ToDoListRow(toDoItem: item)
                         .navigationTitle("To Do List")
                         .navigationBarItems(
