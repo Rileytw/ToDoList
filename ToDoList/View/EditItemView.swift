@@ -20,6 +20,8 @@ struct EditItemView: View {
     
     var body: some View {
         ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate)
+            .navigationBarTitle(Text("Edit Item"),
+                                displayMode: .inline)
             .onAppear {
                 presentOldData()
             }
