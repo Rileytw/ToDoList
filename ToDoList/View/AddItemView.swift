@@ -13,13 +13,12 @@ struct AddItemView: View {
     @State private var location = ""
     @State private var createdDate = Date()
     @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-    @Binding var isPresented: Bool
+    @Environment(\.presentationMode) var presentationMode
 
     @EnvironmentObject var viewModel: ToDoListViewModel
     @StateObject var locationManager = LocationManager()
     
     var body: some View {
-        NavigationView {
             ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate)
             .navigationBarTitle(Text("Add To Do Item"),
                                 displayMode: .inline)
@@ -28,7 +27,6 @@ struct AddItemView: View {
                     action: { addNewItem() },
                     label: { Text("Save") })
             )
-        }
     }
     
     private func addNewItem() {
@@ -38,13 +36,13 @@ struct AddItemView: View {
                                dueDate: dueDate,
                                location: viewModel.location)
         viewModel.addNewItem(newItem: newItem)
-        isPresented = false
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct AddItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddItemView(isPresented: .constant(true))
+        AddItemView()
             .environmentObject(ToDoListViewModel())
     }
 }

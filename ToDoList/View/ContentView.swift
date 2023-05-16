@@ -8,46 +8,56 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isPresented = false
+    @State private var isListEmpty = false
     @EnvironmentObject var viewModel: ToDoListViewModel
-
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(ContentViewSection.allCases, id: \.self) { section in
                     Section(header: Text(section.title)
                         .font(.title3)) {
-                        switch section {
-                        case .toDoList:
-                            ForEach(viewModel.todoList, id: \.self) { item in
-                                ToDoListRow(toDoItem: item)
-                            }
-                            .onDelete(perform: deleteItem)
-                        case .quote:
-                            ForEach(viewModel.quote, id: \.self) { item in
-                                QuoteRow(quote: item)
+                            switch section {
+                            case .toDoList:
+                                if viewModel.todoList.isEmpty {
+                                    Text("To Do List is Empty.")
+                                        .padding()
+                                } else {
+                                    ForEach(viewModel.todoList, id: \.self) { item in
+                                        ToDoListRow(toDoItem: item)
+                                    }
+                                    .onDelete(perform: deleteItem)
+                                }
+                            case .quote:
+                                ForEach(viewModel.quote, id: \.self) { item in
+                                    QuoteRow(quote: item)
+                                }
                             }
                         }
-                    }
                 }
             }
             .navigationTitle("To Do List")
-            .navigationBarItems(
-                trailing: Button(action: {
-                self.isPresented = true
-            }) {
-                Image(systemName: "plus")
-            }
-                .sheet(isPresented: $isPresented) {
-                    AddItemView(isPresented: $isPresented)
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    NavigationLink(destination: AddItemView()) {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 32))
+                            .foregroundColor(.blue)
+                    }
                 }
-            )
+            }
             .onAppear {
                 viewModel.fetchLocalData()
                 viewModel.fetchQutableData()
+                if viewModel.todoList.isEmpty {
+                    isListEmpty = true
+                }
             }
             .alert(isPresented: $viewModel.isError) {
                 Alert(title: Text("Error Message"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            }
+            .alert(isPresented: $isListEmpty) {
+                Alert(title: Text("Hint"), message: Text("Tap ➕ button to add to do item!"), dismissButton: .default(Text("OK")))
             }
         }
     }
