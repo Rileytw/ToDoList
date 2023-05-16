@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ItemDetailView: View {
-    @State var title = ""
-    @State var description = ""
-    @State var location = ""
-    @State var createdDate = Date()
-    @State var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    @Binding var title: String
+    @Binding var description: String
+    @Binding var location: String
+    @Binding var createdDate: Date
+    @Binding var dueDate: Date
     @StateObject var locationManager = LocationManager()
     
     var body: some View {
@@ -67,6 +67,12 @@ struct ItemDetailView: View {
 
 struct ItemDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemDetailView()
+        ItemDetailView(
+                   title: .constant("Sample Title"),
+                   description: .constant("Sample Description"),
+                   location: .constant("Sample Location"),
+                   createdDate: .constant(Date()),
+                   dueDate: .constant(Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
+               )
     }
 }

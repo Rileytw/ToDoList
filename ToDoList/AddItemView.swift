@@ -19,7 +19,7 @@ struct AddItemView: View {
     
     var body: some View {
         NavigationView {
-            ItemDetailView()
+            ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate)
             .navigationBarTitle(Text("Add To Do Item"),
                                 displayMode: .inline)
             .navigationBarItems(

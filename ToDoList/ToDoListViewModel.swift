@@ -15,18 +15,18 @@ class ToDoListViewModel: ObservableObject {
     
     @Published var isError: Bool = false
     
-//    var sortedList: [ToDoItem] { toDoListCache }
+    //    var sortedList: [ToDoItem] { toDoListCache }
     let localDataManager = LocalDataManager()
     
-//    @Published private var toDoListCache: [ToDoItem] = [
-//        .init(title: "See a doctor", description: "Take the Bus 123"),
-//        .init(title: "Do the laundry", description: "Must done today!"),
-//        .init(title: "Send the parcel", description: "To Tom")
-//    ]
-//
+    //    @Published private var toDoListCache: [ToDoItem] = [
+    //        .init(title: "See a doctor", description: "Take the Bus 123"),
+    //        .init(title: "Do the laundry", description: "Must done today!"),
+    //        .init(title: "Send the parcel", description: "To Tom")
+    //    ]
+    //
     
     func addNewItem(newItem: ToDoItem) {
-//        toDoListCache.insert(newItem, at: 0)
+        //        toDoListCache.insert(newItem, at: 0)
         
         localDataManager.addItem(title: newItem.title,
                                  description: newItem.description,
@@ -93,12 +93,32 @@ class ToDoListViewModel: ObservableObject {
             }
         }
     }
+    
+    func editLocalData(toDoItem: ToDoItem, title: String, description: String, createdDate: Date, dueDate: Date, location: String) {
+        guard let listItem = listItems.first(where: { $0.id == toDoItem.id }) else { return }
+        localDataManager.editItem(item: listItem,
+                                  title: title,
+                                  description: description,
+                                  createdDate: createdDate,
+                                  dueDate: dueDate,
+                                  location: location) { [weak self] result in
+            switch result {
+            case .success(()):
+                self?.fetchLocalData()
+                self?.isError = false
+            case .failure(let error):
+                self?.errorMessage = ErrorMessage.editLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.isError = true
+            }
+        }
+    }
 }
 
 enum ErrorMessage {
     case addLocalDataFailed
     case fetchLocalDataFailed
     case deleteLocalDataFailed
+    case editLocalDataFailed
     
     var message: String {
         switch self {
@@ -108,6 +128,8 @@ enum ErrorMessage {
             return "Failed when fetching data."
         case .deleteLocalDataFailed:
             return "Failed when deleting data."
+        case .editLocalDataFailed:
+            return "Failed when editing data."
         }
     }
 }

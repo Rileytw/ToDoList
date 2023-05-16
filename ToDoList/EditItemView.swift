@@ -8,20 +8,38 @@
 import SwiftUI
 
 struct EditItemView: View {
+    @State private var title = ""
+    @State private var description = ""
+    @State private var location = ""
+    @State private var createdDate = Date()
+    @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: ToDoListViewModel
+    @StateObject var locationManager = LocationManager()
+
     var item: ToDoItem
-    private let itemDetailVew = ItemDetailView()
     
     var body: some View {
-        ItemDetailView(title: item.title,
-                       description: item.description,
-                       location: item.location,
-                       createdDate: item.createdDate,
-                       dueDate: item.dueDate)
+        ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate)
+            .onAppear {
+                presentOldData()
+            }
             .onDisappear {
-                
+                editItem()
             }
     }
     
+    private func presentOldData() {
+        title = item.title
+        description = item.description
+        createdDate = item.createdDate
+        dueDate = item.dueDate
+        location = item.location
+    }
+    
+    private func editItem() {
+        viewModel.editLocalData(toDoItem: item, title: title, description: description, createdDate: createdDate, dueDate: dueDate, location: location)
+    }
 
 }
 
