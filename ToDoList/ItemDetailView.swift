@@ -61,6 +61,9 @@ struct ItemDetailView: View {
         }
         .frame(maxWidth: .infinity, alignment: .top)
         .padding()
+        .onAppear {
+            locationManager.requestLocation()
+        }
     }
 }
 

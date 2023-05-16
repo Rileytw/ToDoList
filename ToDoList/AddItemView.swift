@@ -27,9 +27,6 @@ struct AddItemView: View {
                     action: { addNewItem() },
                     label: { Text("Save") })
             )
-            .onAppear {
-                locationManager.requestLocation()
-            }
         }
     }
     
@@ -44,11 +41,6 @@ struct AddItemView: View {
         viewModel.addNewItem(newItem: newItem)
         dismiss()
     }
-    
-    private func getCurrectLocation() {
-        locationManager.requestLocation()
-    }
-        
 }
 
 struct AddItemView_Previews: PreviewProvider {
