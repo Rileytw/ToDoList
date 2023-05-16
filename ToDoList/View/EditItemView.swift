@@ -12,7 +12,7 @@ struct EditItemView: View {
     @State private var description = ""
     @State private var location = ""
     @State private var createdDate = Date()
-    @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     @EnvironmentObject var viewModel: ToDoListViewModel
     @StateObject var locationManager = LocationManager()
 
