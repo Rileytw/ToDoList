@@ -38,7 +38,16 @@ struct EditItemView: View {
     }
     
     private func editItem() {
-        viewModel.editLocalData(toDoItem: item, title: title, description: description, createdDate: createdDate, dueDate: dueDate, location: location)
+        guard item.title != title || item.description != description || item.createdDate != createdDate || item.dueDate != dueDate || item.location != location else {
+               return
+           }
+           
+           viewModel.editLocalData(toDoItem: item,
+                                   title: title,
+                                   description: description,
+                                   createdDate: createdDate,
+                                   dueDate: dueDate,
+                                   location: location)
     }
 
 }
