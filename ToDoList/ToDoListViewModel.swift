@@ -10,7 +10,7 @@ import Combine
 
 class ToDoListViewModel: ObservableObject {
     @Published var todoList: [ToDoItem] = []
-    @Published var quote: Quote?
+    @Published var quote: [Quote] = []
     @Published var isError: Bool = false
     private var listItems: [ListItem] = []
     var errorMessage: String?
@@ -114,7 +114,7 @@ class ToDoListViewModel: ObservableObject {
         networkManager.requestData(router) { [weak self] (result: Result<Quote>) in
             switch result {
             case .success(let data):
-                self?.quote = data
+                self?.quote.append(data)
                 self?.isError = false
             case .failure(let error):
                 let api = router.baseURL + router.path

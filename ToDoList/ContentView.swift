@@ -14,10 +14,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.todoList, id: \.self) { item in
-                    ToDoListRow(toDoItem: item)
+                Section(header: Text(ContentViewSection.toDoList.title)) {
+                    ForEach(viewModel.todoList, id: \.self) { item in
+                        ToDoListRow(toDoItem: item)
+                    }
+                    .onDelete(perform: deleteItem)
                 }
-                .onDelete(perform: deleteItem)
+                Section(header: Text(ContentViewSection.quote.title)) {
+                    ForEach(viewModel.quote , id: \.self) { item in
+                        QuoteRow(quote: item)
+                    }
+                }
             }
             .navigationTitle("To Do List")
             .navigationBarItems(
@@ -44,6 +51,22 @@ struct ContentView: View {
         offsets.forEach { index in
             let deltedItem = viewModel.todoList[index]
             self.viewModel.deleteLocalData(toDoItem: deltedItem)
+        }
+    }
+}
+
+extension ContentView {
+    enum ContentViewSection: CaseIterable {
+        case toDoList
+        case quote
+        
+        var title: String {
+            switch self {
+            case .toDoList:
+                return "To Do"
+            case .quote:
+                return "Quote"
+            }
         }
     }
 }
@@ -93,6 +116,47 @@ struct ToDoListRow: View {
     }
 }
 
+struct QuoteRow: View {
+    let quote: Quote
+    
+    var body: some View {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(quote.content ?? "")
+                        .font(.title3)
+                    Spacer()
+                    HStack {
+                        Text("Added Date:")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text(quote.dateAdded ?? "")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    HStack {
+                        Text("Modified Date:")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text(quote.dateModified ?? "")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    HStack {
+                        Text("Author:")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text(quote.author ?? "")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                }
+                .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(.vertical, 12)
+        
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
