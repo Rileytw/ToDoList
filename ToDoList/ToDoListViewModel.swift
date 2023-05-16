@@ -10,12 +10,18 @@ import Combine
 
 class ToDoListViewModel: ObservableObject {
     @Published var todoList: [ToDoItem] = []
+    @Published var quote: Quote?
+    @Published var isError: Bool = false
     private var listItems: [ListItem] = []
     var errorMessage: String?
     
-    @Published var isError: Bool = false
-
     let localDataManager = LocalDataManager()
+    
+    let networkManager: HTTPClient
+    
+    init(networkManager: HTTPClient = NetworkManager()) {
+        self.networkManager = networkManager
+    }
     
     func addNewItem(newItem: ToDoItem) {
         localDataManager.addItem(title: newItem.title,
@@ -102,13 +108,30 @@ class ToDoListViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchQutableData() {
+        let router = QuotableRouter.random
+        networkManager.requestData(router) { [weak self] (result: Result<Quote>) in
+            switch result {
+            case .success(let data):
+                self?.quote = data
+                self?.isError = false
+            case .failure(let error):
+                let api = router.baseURL + router.path
+                self?.errorMessage = ErrorMessage.fetchAPIDataFailed(api: api).message + "\n \(error.localizedDescription)"
+                self?.isError = true
+            }
+        }
+    }
 }
+
 
 enum ErrorMessage {
     case addLocalDataFailed
     case fetchLocalDataFailed
     case deleteLocalDataFailed
     case editLocalDataFailed
+    case fetchAPIDataFailed(api: String)
     
     var message: String {
         switch self {
@@ -120,6 +143,8 @@ enum ErrorMessage {
             return "Failed when deleting data."
         case .editLocalDataFailed:
             return "Failed when editing data."
+        case .fetchAPIDataFailed(let api):
+            return "Failed when fetching data from API: \(api)."
         }
     }
 }

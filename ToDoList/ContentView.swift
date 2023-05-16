@@ -32,6 +32,7 @@ struct ContentView: View {
             )
             .onAppear {
                 viewModel.fetchLocalData()
+                viewModel.fetchQutableData()
             }
             .alert(isPresented: $viewModel.isError) {
                 Alert(title: Text("Error Message"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
