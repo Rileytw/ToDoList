@@ -15,7 +15,8 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(ContentViewSection.allCases, id: \.self) { section in
-                    Section(header: Text(section.title)) {
+                    Section(header: Text(section.title)
+                        .font(.title3)) {
                         switch section {
                         case .toDoList:
                             ForEach(viewModel.todoList, id: \.self) { item in
