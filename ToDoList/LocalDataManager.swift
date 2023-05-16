@@ -20,7 +20,7 @@ class LocalDataManager: ObservableObject {
         let container = NSPersistentContainer(name: "ToDoList")
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
-                fatalError("Core Data PersistentContainer Error: \(error.localizedDescription)")
+                print("Core Data PersistentContainer Error: \(error.localizedDescription)")
             }
         }
         return container

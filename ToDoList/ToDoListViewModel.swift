@@ -11,6 +11,9 @@ import Combine
 class ToDoListViewModel: ObservableObject {
     @Published var todoList: [ToDoItem] = []
     private var listItems: [ListItem] = []
+    var errorMessage: String?
+    
+    @Published var isError: Bool = false
     
 //    var sortedList: [ToDoItem] { toDoListCache }
     let localDataManager = LocalDataManager()
@@ -33,8 +36,10 @@ class ToDoListViewModel: ObservableObject {
             switch result {
             case .success(()):
                 self?.fetchLocalData()
+                self?.isError = false
             case .failure(let error):
-                print("\(error.localizedDescription)")
+                self?.errorMessage = ErrorMessage.addLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.isError = true
             }
         }
     }
@@ -52,8 +57,10 @@ class ToDoListViewModel: ObservableObject {
             case .success(let items):
                 self?.listItems = items
                 self?.todoList = self?.transferLocalData(localItems: items) ?? []
+                self?.isError = false
             case .failure(let error):
-                print("Error:\(error)")
+                self?.errorMessage = ErrorMessage.fetchLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.isError = true
             }
         }
     }
@@ -79,9 +86,28 @@ class ToDoListViewModel: ObservableObject {
             switch result {
             case .success(()):
                 self?.fetchLocalData()
+                self?.isError = false
             case .failure(let error):
-                print("\(error.localizedDescription)")
+                self?.errorMessage = ErrorMessage.deleteLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.isError = true
             }
+        }
+    }
+}
+
+enum ErrorMessage {
+    case addLocalDataFailed
+    case fetchLocalDataFailed
+    case deleteLocalDataFailed
+    
+    var message: String {
+        switch self {
+        case .addLocalDataFailed:
+            return "Failed when adding data."
+        case .fetchLocalDataFailed:
+            return "Failed when fetching data."
+        case .deleteLocalDataFailed:
+            return "Failed when deleting data."
         }
     }
 }
