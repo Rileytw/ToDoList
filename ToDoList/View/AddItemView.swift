@@ -13,7 +13,8 @@ struct AddItemView: View {
     @State private var location = ""
     @State private var createdDate = Date()
     @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-    @Environment(\.dismiss) var dismiss    
+    @Binding var isPresented: Bool
+
     @EnvironmentObject var viewModel: ToDoListViewModel
     @StateObject var locationManager = LocationManager()
     
@@ -37,13 +38,13 @@ struct AddItemView: View {
                                dueDate: dueDate,
                                location: viewModel.location)
         viewModel.addNewItem(newItem: newItem)
-        dismiss()
+        isPresented = false
     }
 }
 
 struct AddItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddItemView()
+        AddItemView(isPresented: .constant(true))
             .environmentObject(ToDoListViewModel())
     }
 }

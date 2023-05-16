@@ -13,7 +13,6 @@ struct EditItemView: View {
     @State private var location = ""
     @State private var createdDate = Date()
     @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: ToDoListViewModel
     @StateObject var locationManager = LocationManager()
 
@@ -55,5 +54,6 @@ struct EditItemView: View {
 struct EditItemView_Previews: PreviewProvider {
     static var previews: some View {
         EditItemView(item: ToDoItem())
+            .environmentObject(ToDoListViewModel())
     }
 }

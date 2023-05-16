@@ -39,7 +39,7 @@ struct ContentView: View {
                 Image(systemName: "plus")
             }
                 .sheet(isPresented: $isPresented) {
-                    AddItemView()
+                    AddItemView(isPresented: $isPresented)
                 }
             )
             .onAppear {
