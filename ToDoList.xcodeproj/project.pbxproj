@@ -26,6 +26,8 @@
 		35F1D04B2A136B0600EA05D0 /* QuotableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D04A2A136B0600EA05D0 /* QuotableRouter.swift */; };
 		35F1D04D2A136C1D00EA05D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D04C2A136C1D00EA05D0 /* NetworkManager.swift */; };
 		35F1D04F2A136F5F00EA05D0 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D04E2A136F5F00EA05D0 /* Quote.swift */; };
+		35F1D0512A1379A700EA05D0 /* QuoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D0502A1379A700EA05D0 /* QuoteRow.swift */; };
+		35F1D0532A1379C800EA05D0 /* ToDoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D0522A1379C800EA05D0 /* ToDoListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		35F1D04A2A136B0600EA05D0 /* QuotableRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotableRouter.swift; sourceTree = "<group>"; };
 		35F1D04C2A136C1D00EA05D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		35F1D04E2A136F5F00EA05D0 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		35F1D0502A1379A700EA05D0 /* QuoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRow.swift; sourceTree = "<group>"; };
+		35F1D0522A1379C800EA05D0 /* ToDoListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				353699932A1230480069E151 /* Info.plist */,
 				35E70B6A2A114BC500B6BF57 /* ToDoListApp.swift */,
 				35E70B6C2A114BC500B6BF57 /* ContentView.swift */,
+				35F1D0522A1379C800EA05D0 /* ToDoListRow.swift */,
+				35F1D0502A1379A700EA05D0 /* QuoteRow.swift */,
 				35CA4D852A11FDD8005E96CE /* AddItemView.swift */,
 				353699992A1352360069E151 /* EditItemView.swift */,
 				3536999D2A1355300069E151 /* ItemDetailView.swift */,
@@ -198,8 +204,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				35E70B6D2A114BC500B6BF57 /* ContentView.swift in Sources */,
+				35F1D0512A1379A700EA05D0 /* QuoteRow.swift in Sources */,
 				35F1D04B2A136B0600EA05D0 /* QuotableRouter.swift in Sources */,
 				353699952A1278860069E151 /* LocalDataManager.swift in Sources */,
+				35F1D0532A1379C800EA05D0 /* ToDoListRow.swift in Sources */,
 				35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */,
 				35F1D04F2A136F5F00EA05D0 /* Quote.swift in Sources */,
 				3536999E2A1355300069E151 /* ItemDetailView.swift in Sources */,
