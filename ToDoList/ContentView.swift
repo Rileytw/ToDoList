@@ -14,15 +14,19 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text(ContentViewSection.toDoList.title)) {
-                    ForEach(viewModel.todoList, id: \.self) { item in
-                        ToDoListRow(toDoItem: item)
-                    }
-                    .onDelete(perform: deleteItem)
-                }
-                Section(header: Text(ContentViewSection.quote.title)) {
-                    ForEach(viewModel.quote , id: \.self) { item in
-                        QuoteRow(quote: item)
+                ForEach(ContentViewSection.allCases, id: \.self) { section in
+                    Section(header: Text(section.title)) {
+                        switch section {
+                        case .toDoList:
+                            ForEach(viewModel.todoList, id: \.self) { item in
+                                ToDoListRow(toDoItem: item)
+                            }
+                            .onDelete(perform: deleteItem)
+                        case .quote:
+                            ForEach(viewModel.quote, id: \.self) { item in
+                                QuoteRow(quote: item)
+                            }
+                        }
                     }
                 }
             }
