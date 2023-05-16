@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreLocation
 
 struct AddItemView: View {
     @State private var title = ""
@@ -104,7 +103,7 @@ struct AddItemView: View {
         
         let latitudeString = String(defaultLocation.latitude)
         let longitudeString = String(defaultLocation.longitude)
-        var defaultLocationString = latitudeString + "," + longitudeString
+        let defaultLocationString = latitudeString + "," + longitudeString
         return defaultLocationString
     }
 }
