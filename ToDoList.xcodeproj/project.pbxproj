@@ -20,6 +20,7 @@
 		35E70B6D2A114BC500B6BF57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70B6C2A114BC500B6BF57 /* ContentView.swift */; };
 		35E70B6F2A114BC600B6BF57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E70B6E2A114BC600B6BF57 /* Assets.xcassets */; };
 		35E70B722A114BC600B6BF57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E70B712A114BC600B6BF57 /* Preview Assets.xcassets */; };
+		35F1D0442A13693E00EA05D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 35F1D0432A13693E00EA05D0 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35F1D0442A13693E00EA05D0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +114,9 @@
 			dependencies = (
 			);
 			name = ToDoList;
+			packageProductDependencies = (
+				35F1D0432A13693E00EA05D0 /* Alamofire */,
+			);
 			productName = ToDoList;
 			productReference = 35E70B672A114BC500B6BF57 /* ToDoList.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +145,9 @@
 				Base,
 			);
 			mainGroup = 35E70B5E2A114BC500B6BF57;
+			packageReferences = (
+				35F1D0422A13693E00EA05D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 35E70B682A114BC500B6BF57 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -381,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35F1D0422A13693E00EA05D0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35F1D0432A13693E00EA05D0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35F1D0422A13693E00EA05D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		353699962A127B200069E151 /* ToDoList.xcdatamodeld */ = {
