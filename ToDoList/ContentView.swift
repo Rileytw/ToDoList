@@ -55,41 +55,43 @@ struct ToDoListRow: View {
     private let viewModel = ToDoListViewModel()
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(toDoItem.title)
-                    .font(.title2)
-                Text(toDoItem.description)
-                    .font(.title3)
-                    .foregroundColor(.gray)
-                Spacer()
-                HStack {
-                    Text("created Date:")
-                        .font(.subheadline)
-                    Text(viewModel.dateToString(toDoItem.createdDate))
-                        .font(.subheadline)
+        NavigationLink(destination: EditItemView(item: toDoItem)) {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(toDoItem.title)
+                        .font(.title2)
+                    Text(toDoItem.description)
+                        .font(.title3)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    HStack {
+                        Text("created Date:")
+                            .font(.subheadline)
+                        Text(viewModel.dateToString(toDoItem.createdDate))
+                            .font(.subheadline)
+                    }
+                    HStack {
+                        Text("Due Date:")
+                            .font(.subheadline)
+                            .foregroundColor(.red)
+                        Text(viewModel.dateToString(toDoItem.dueDate))
+                            .font(.subheadline)
+                            .foregroundColor(.red)
+                    }
+                    HStack {
+                        Text("Location:")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text(toDoItem.location)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
                 }
-                HStack {
-                    Text("Due Date:")
-                        .font(.subheadline)
-                        .foregroundColor(.red)
-                    Text(viewModel.dateToString(toDoItem.dueDate))
-                        .font(.subheadline)
-                        .foregroundColor(.red)
-                }
-                HStack {
-                    Text("Location:")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    Text(toDoItem.location)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                
+                .fixedSize(horizontal: false, vertical: true)
             }
-            .fixedSize(horizontal: false, vertical: true)
+            .padding(.vertical, 12)
         }
-        .padding(.vertical, 12)
     }
 }
 

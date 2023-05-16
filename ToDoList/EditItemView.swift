@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct EditItemView: View {
+    var item: ToDoItem
+    private let itemDetailVew = ItemDetailView()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ItemDetailView(title: item.title,
+                       description: item.description,
+                       location: item.location,
+                       createdDate: item.createdDate,
+                       dueDate: item.dueDate)
+            .onDisappear {
+                
+            }
     }
+    
+
 }
 
 struct EditItemView_Previews: PreviewProvider {
     static var previews: some View {
-        EditItemView()
+        EditItemView(item: ToDoItem())
     }
 }
