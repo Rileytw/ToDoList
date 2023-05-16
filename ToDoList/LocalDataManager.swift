@@ -75,4 +75,10 @@ class LocalDataManager: ObservableObject {
             completion(LocalStorageResult.failure(error))
         }
     }
+    
+    func deleteLocalData(item: ListItem, completion: @escaping (LocalStorageResult<Void>) -> Void) {
+        context.delete(item)
+        saveContext(completion: completion)
+    }
+
 }

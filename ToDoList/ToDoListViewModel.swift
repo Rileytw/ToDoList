@@ -10,6 +10,7 @@ import Combine
 
 class ToDoListViewModel: ObservableObject {
     @Published var todoList: [ToDoItem] = []
+    private var listItems: [ListItem] = []
     
 //    var sortedList: [ToDoItem] { toDoListCache }
     let localDataManager = LocalDataManager()
@@ -35,7 +36,6 @@ class ToDoListViewModel: ObservableObject {
             case .failure(let error):
                 print("\(error.localizedDescription)")
             }
-            
         }
     }
     
@@ -50,6 +50,7 @@ class ToDoListViewModel: ObservableObject {
         localDataManager.fetchLocalData { [weak self] result in
             switch result {
             case .success(let items):
+                self?.listItems = items
                 self?.todoList = self?.transferLocalData(localItems: items) ?? []
             case .failure(let error):
                 print("Error:\(error)")
@@ -63,11 +64,24 @@ class ToDoListViewModel: ObservableObject {
                             description: item.content ?? "",
                             createdDate: item.createdDate ?? Date(),
                             dueDate: item.dueDate ?? Date(),
-                            location: item.location ?? "")
+                            location: item.location ?? "",
+                            id: item.id)
         }
         let sortedItems = newItems.sorted { item1, item2 in
             item1.dueDate < item2.dueDate
         }
         return sortedItems
+    }
+    
+    func deleteLocalData(toDoItem: ToDoItem) {
+        guard let listItem = listItems.first(where: { $0.id == toDoItem.id }) else { return }
+        localDataManager.deleteLocalData(item: listItem) { [weak self] result in
+            switch result {
+            case .success(()):
+                self?.fetchLocalData()
+            case .failure(let error):
+                print("\(error.localizedDescription)")
+            }
+        }
     }
 }

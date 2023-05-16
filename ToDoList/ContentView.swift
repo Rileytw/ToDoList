@@ -20,6 +20,7 @@ struct ContentView: View {
                 ForEach(viewModel.todoList, id: \.self) { item in
                     ToDoListRow(toDoItem: item)
                 }
+                .onDelete(perform: deleteItem)
             }
             .navigationTitle("To Do List")
             .navigationBarItems(
@@ -35,6 +36,13 @@ struct ContentView: View {
             .onAppear {
                 viewModel.fetchLocalData()
             }
+        }
+    }
+    
+    func deleteItem(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let deltedItem = viewModel.todoList[index]
+            self.viewModel.deleteLocalData(toDoItem: deltedItem)
         }
     }
 }
