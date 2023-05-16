@@ -24,6 +24,7 @@
 		35F1D0462A136A2D00EA05D0 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D0452A136A2D00EA05D0 /* EndPointType.swift */; };
 		35F1D0492A136ACC00EA05D0 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D0482A136ACC00EA05D0 /* NetworkClient.swift */; };
 		35F1D04B2A136B0600EA05D0 /* QuotableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D04A2A136B0600EA05D0 /* QuotableRouter.swift */; };
+		35F1D04D2A136C1D00EA05D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D04C2A136C1D00EA05D0 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		35F1D0452A136A2D00EA05D0 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		35F1D0482A136ACC00EA05D0 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		35F1D04A2A136B0600EA05D0 /* QuotableRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotableRouter.swift; sourceTree = "<group>"; };
+		35F1D04C2A136C1D00EA05D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				35F1D0452A136A2D00EA05D0 /* EndPointType.swift */,
 				35F1D0482A136ACC00EA05D0 /* NetworkClient.swift */,
 				35F1D04A2A136B0600EA05D0 /* QuotableRouter.swift */,
+				35F1D04C2A136C1D00EA05D0 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				35F1D0492A136ACC00EA05D0 /* NetworkClient.swift in Sources */,
 				35F1D0462A136A2D00EA05D0 /* EndPointType.swift in Sources */,
 				35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */,
+				35F1D04D2A136C1D00EA05D0 /* NetworkManager.swift in Sources */,
 				353699982A127B200069E151 /* ToDoList.xcdatamodeld in Sources */,
 				3536999A2A1352360069E151 /* EditItemView.swift in Sources */,
 			);
