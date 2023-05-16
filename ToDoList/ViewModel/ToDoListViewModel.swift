@@ -11,16 +11,19 @@ import Combine
 class ToDoListViewModel: ObservableObject {
     @Published var todoList: [ToDoItem] = []
     @Published var quote: [Quote] = []
+    @Published var location: String = ""
     @Published var isError: Bool = false
     private var listItems: [ListItem] = []
     var errorMessage: String?
     
     let localDataManager = LocalDataManager()
+    let locationManager = LocationManager()
     
     let networkManager: HTTPClient
     
     init(networkManager: HTTPClient = NetworkManager()) {
         self.networkManager = networkManager
+        locationManager.delegate = self
     }
     
     func addNewItem(newItem: ToDoItem) {
@@ -122,6 +125,16 @@ class ToDoListViewModel: ObservableObject {
                 self?.isError = true
             }
         }
+    }
+    
+    func getLocation() {
+        locationManager.requestLocation()
+    }
+}
+
+extension ToDoListViewModel: LocationDelegate {
+    func didGetLocation(location: String) {
+        self.location = location
     }
 }
 

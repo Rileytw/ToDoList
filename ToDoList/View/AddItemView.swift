@@ -31,13 +31,11 @@ struct AddItemView: View {
     }
     
     private func addNewItem() {
-        let defaultLocationString = Utils.getDefaultLocationString(location: locationManager.location)
-        
         let newItem = ToDoItem(title: title,
                                description: description,
                                createdDate: createdDate,
                                dueDate: dueDate,
-                               location: defaultLocationString)
+                               location: viewModel.location)
         viewModel.addNewItem(newItem: newItem)
         dismiss()
     }

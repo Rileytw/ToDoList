@@ -13,7 +13,7 @@ struct ItemDetailView: View {
     @Binding var location: String
     @Binding var createdDate: Date
     @Binding var dueDate: Date
-    @StateObject var locationManager = LocationManager()
+    @EnvironmentObject var viewModel: ToDoListViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -48,11 +48,11 @@ struct ItemDetailView: View {
                 Text("Location")
                     .font(.title3)
                     .bold()
-                if let defaultLocation = locationManager.location {
-                    let defaultLocationString = Utils.getDefaultLocationString(location: defaultLocation)
-                    TextField("Location: \(defaultLocationString)", text: $location)
-                } else {
+                if viewModel.location.isEmpty {
                     TextField("Location...", text: $location)
+                    
+                } else {
+                    TextField("Location: \(viewModel.location)", text: $location)
                 }
                 
                 Divider()
@@ -62,7 +62,7 @@ struct ItemDetailView: View {
         .frame(maxWidth: .infinity, alignment: .top)
         .padding()
         .onAppear {
-            locationManager.requestLocation()
+            viewModel.getLocation()
         }
     }
 }
@@ -71,11 +71,12 @@ struct ItemDetailView: View {
 struct ItemDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ItemDetailView(
-                   title: .constant("Sample Title"),
-                   description: .constant("Sample Description"),
-                   location: .constant("Sample Location"),
-                   createdDate: .constant(Date()),
-                   dueDate: .constant(Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
-               )
+            title: .constant("Sample Title"),
+            description: .constant("Sample Description"),
+            location: .constant("Sample Location"),
+            createdDate: .constant(Date()),
+            dueDate: .constant(Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
+        )
+        .environmentObject(ToDoListViewModel())
     }
 }

@@ -8,10 +8,13 @@
 import Foundation
 import CoreLocation
 
+protocol LocationDelegate: AnyObject {
+    func didGetLocation(location: String)
+}
+
 class LocationManager: NSObject, ObservableObject {
     private var locationManager = CLLocationManager()
-    @Published var location: CLLocationCoordinate2D?
-
+    weak var delegate: LocationDelegate?
     
     override init() {
         super.init()
@@ -34,7 +37,8 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
+        let locationString = Utils.getDefaultLocationString(location: locations.first?.coordinate)
+        delegate?.didGetLocation(location: locationString)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
