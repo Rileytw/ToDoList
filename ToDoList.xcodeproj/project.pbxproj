@@ -88,19 +88,13 @@
 			children = (
 				353699932A1230480069E151 /* Info.plist */,
 				35E70B6A2A114BC500B6BF57 /* ToDoListApp.swift */,
-				35E70B6C2A114BC500B6BF57 /* ContentView.swift */,
-				35F1D0522A1379C800EA05D0 /* ToDoListRow.swift */,
-				35F1D0502A1379A700EA05D0 /* QuoteRow.swift */,
-				35CA4D852A11FDD8005E96CE /* AddItemView.swift */,
-				353699992A1352360069E151 /* EditItemView.swift */,
-				3536999D2A1355300069E151 /* ItemDetailView.swift */,
-				35CA4D832A11E462005E96CE /* ToDoItem.swift */,
-				35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */,
-				353699912A122F8C0069E151 /* LocationManager.swift */,
-				353699942A1278860069E151 /* LocalDataManager.swift */,
-				3536999B2A1353F50069E151 /* Utils.swift */,
-				35F1D04E2A136F5F00EA05D0 /* Quote.swift */,
+				35F1D05A2A137C0D00EA05D0 /* Utils */,
+				35F1D0582A137BC300EA05D0 /* LocalStorage */,
 				35F1D0472A136AB300EA05D0 /* Network */,
+				35F1D0592A137BD300EA05D0 /* Location */,
+				35F1D0542A137B6E00EA05D0 /* View */,
+				35F1D0562A137B9B00EA05D0 /* Model */,
+				35F1D0572A137BB100EA05D0 /* ViewModel */,
 				353699962A127B200069E151 /* ToDoList.xcdatamodeld */,
 				35E70B6E2A114BC600B6BF57 /* Assets.xcassets */,
 				35E70B702A114BC600B6BF57 /* Preview Content */,
@@ -125,6 +119,68 @@
 				35F1D04C2A136C1D00EA05D0 /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		35F1D0542A137B6E00EA05D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35F1D0552A137B8700EA05D0 /* RowView */,
+				35E70B6C2A114BC500B6BF57 /* ContentView.swift */,
+				35CA4D852A11FDD8005E96CE /* AddItemView.swift */,
+				353699992A1352360069E151 /* EditItemView.swift */,
+				3536999D2A1355300069E151 /* ItemDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35F1D0552A137B8700EA05D0 /* RowView */ = {
+			isa = PBXGroup;
+			children = (
+				35F1D0522A1379C800EA05D0 /* ToDoListRow.swift */,
+				35F1D0502A1379A700EA05D0 /* QuoteRow.swift */,
+			);
+			path = RowView;
+			sourceTree = "<group>";
+		};
+		35F1D0562A137B9B00EA05D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35CA4D832A11E462005E96CE /* ToDoItem.swift */,
+				35F1D04E2A136F5F00EA05D0 /* Quote.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35F1D0572A137BB100EA05D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		35F1D0582A137BC300EA05D0 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				353699942A1278860069E151 /* LocalDataManager.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		35F1D0592A137BD300EA05D0 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				353699912A122F8C0069E151 /* LocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		35F1D05A2A137C0D00EA05D0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3536999B2A1353F50069E151 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
