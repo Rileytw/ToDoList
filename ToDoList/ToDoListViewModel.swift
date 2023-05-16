@@ -14,20 +14,10 @@ class ToDoListViewModel: ObservableObject {
     var errorMessage: String?
     
     @Published var isError: Bool = false
-    
-    //    var sortedList: [ToDoItem] { toDoListCache }
+
     let localDataManager = LocalDataManager()
     
-    //    @Published private var toDoListCache: [ToDoItem] = [
-    //        .init(title: "See a doctor", description: "Take the Bus 123"),
-    //        .init(title: "Do the laundry", description: "Must done today!"),
-    //        .init(title: "Send the parcel", description: "To Tom")
-    //    ]
-    //
-    
     func addNewItem(newItem: ToDoItem) {
-        //        toDoListCache.insert(newItem, at: 0)
-        
         localDataManager.addItem(title: newItem.title,
                                  description: newItem.description,
                                  createdDate: newItem.createdDate,

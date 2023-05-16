@@ -14,9 +14,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-//                ForEach(viewModel.sortedList, id: \.self) { item in
-//                    ToDoListRow(toDoItem: item)
-//                }
                 ForEach(viewModel.todoList, id: \.self) { item in
                     ToDoListRow(toDoItem: item)
                 }
