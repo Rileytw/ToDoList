@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isListEmpty = false
+    @State private var isFistAppear = true
     @EnvironmentObject var viewModel: ToDoListViewModel
     
     var body: some View {
@@ -48,9 +49,12 @@ struct ContentView: View {
             }
             .onAppear {
                 viewModel.fetchLocalData()
-                viewModel.fetchQutableData()
-                if viewModel.todoList.isEmpty {
-                    isListEmpty = true
+                
+                isListEmpty = viewModel.todoList.isEmpty ? true : false
+                
+                if isFistAppear {
+                    viewModel.fetchQutableData()
+                    isFistAppear = false
                 }
             }
             .alert(isPresented: $viewModel.isError) {
