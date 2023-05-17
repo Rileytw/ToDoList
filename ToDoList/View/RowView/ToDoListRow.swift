@@ -24,14 +24,14 @@ struct ToDoListRow: View {
                     HStack {
                         Text("created Date:")
                             .font(.subheadline)
-                        Text(viewModel.dateToString(toDoItem.createdDate))
+                        Text(Utils.dateToString(toDoItem.createdDate))
                             .font(.subheadline)
                     }
                     HStack {
                         Text("Due Date:")
                             .font(.subheadline)
                             .foregroundColor(.red)
-                        Text(viewModel.dateToString(toDoItem.dueDate))
+                        Text(Utils.dateToString(toDoItem.dueDate))
                             .font(.subheadline)
                             .foregroundColor(.red)
                     }

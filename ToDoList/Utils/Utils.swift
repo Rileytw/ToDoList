@@ -17,4 +17,11 @@ class Utils {
         let locationString = latitudeString + "," + longitudeString
         return locationString
     }
+    
+    static func dateToString(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
 }
