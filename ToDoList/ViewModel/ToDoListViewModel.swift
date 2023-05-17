@@ -129,6 +129,11 @@ extension ToDoListViewModel: LocationDelegate {
     func didGetLocation(location: String) {
         self.location = location
     }
+    
+    func locationRequestFailed(error: Error) {
+        self.isError = true
+        self.errorMessage = ErrorMessage.getLocationFailed.message + "\n \(error.localizedDescription)"
+    }
 }
 
 
@@ -138,6 +143,7 @@ enum ErrorMessage {
     case deleteLocalDataFailed
     case editLocalDataFailed
     case fetchAPIDataFailed(api: String)
+    case getLocationFailed
     
     var message: String {
         switch self {
@@ -151,6 +157,8 @@ enum ErrorMessage {
             return "Failed when editing data."
         case .fetchAPIDataFailed(let api):
             return "Failed when fetching data from API: \(api)."
+        case .getLocationFailed:
+            return "Failed when requesting location"
         }
     }
 }

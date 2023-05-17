@@ -10,6 +10,7 @@ import CoreLocation
 
 protocol LocationDelegate: AnyObject {
     func didGetLocation(location: String)
+    func locationRequestFailed(error: Error)
 }
 
 class LocationManager: NSObject, ObservableObject {
@@ -42,7 +43,7 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error requesting location: \(error.localizedDescription)")
+        delegate?.locationRequestFailed(error: error)
     }
 
 }
