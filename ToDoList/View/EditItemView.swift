@@ -13,13 +13,13 @@ struct EditItemView: View {
     @State private var location = ""
     @State private var createdDate = Date()
     @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-    @EnvironmentObject var viewModel: ToDoListViewModel
+    @ObservedObject var viewModel: ToDoListViewModel
     @StateObject var locationManager = LocationManager()
 
     var item: ToDoItem
     
     var body: some View {
-        ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate)
+        ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
             .navigationBarTitle(Text("Edit Item"),
                                 displayMode: .inline)
             .onAppear {
@@ -55,7 +55,6 @@ struct EditItemView: View {
 
 struct EditItemView_Previews: PreviewProvider {
     static var previews: some View {
-        EditItemView(item: ToDoItem())
-            .environmentObject(ToDoListViewModel())
+        EditItemView(viewModel: ToDoListViewModel(), item: ToDoItem())
     }
 }

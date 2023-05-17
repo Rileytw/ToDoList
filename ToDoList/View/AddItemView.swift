@@ -15,11 +15,11 @@ struct AddItemView: View {
     @State private var dueDate = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     @Environment(\.presentationMode) var presentationMode
 
-    @EnvironmentObject var viewModel: ToDoListViewModel
-    @StateObject var locationManager = LocationManager()
+    @ObservedObject var viewModel: ToDoListViewModel
+//    @StateObject var locationManager = LocationManager()
     
     var body: some View {
-            ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate)
+        ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
             .navigationBarTitle(Text("Add To Do Item"),
                                 displayMode: .inline)
             .navigationBarItems(
@@ -42,7 +42,6 @@ struct AddItemView: View {
 
 struct AddItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddItemView()
-            .environmentObject(ToDoListViewModel())
+        AddItemView(viewModel: ToDoListViewModel())
     }
 }

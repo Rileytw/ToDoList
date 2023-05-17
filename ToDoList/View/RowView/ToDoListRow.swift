@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ToDoListRow: View {
     let toDoItem: ToDoItem
-    private let viewModel = ToDoListViewModel()
+    @ObservedObject var viewModel: ToDoListViewModel
     
     var body: some View {
-        NavigationLink(destination: EditItemView(item: toDoItem)) {
+        NavigationLink(destination: EditItemView(viewModel: viewModel, item: toDoItem)) {
             HStack {
                 VStack(alignment: .leading) {
                     Text(toDoItem.title)

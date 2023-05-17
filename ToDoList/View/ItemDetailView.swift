@@ -13,7 +13,7 @@ struct ItemDetailView: View {
     @Binding var location: String
     @Binding var createdDate: Date
     @Binding var dueDate: Date
-    @EnvironmentObject var viewModel: ToDoListViewModel
+    @ObservedObject var viewModel: ToDoListViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -75,8 +75,8 @@ struct ItemDetailView_Previews: PreviewProvider {
             description: .constant("Sample Description"),
             location: .constant("Sample Location"),
             createdDate: .constant(Date()),
-            dueDate: .constant(Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
+            dueDate: .constant(Calendar.current.date(byAdding: .day, value: 1, to: Date())!),
+            viewModel: ToDoListViewModel()
         )
-        .environmentObject(ToDoListViewModel())
     }
 }

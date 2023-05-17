@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var isListEmpty = false
     @State private var isFistAppear = true
-    @EnvironmentObject var viewModel: ToDoListViewModel
+    @ObservedObject var viewModel: ToDoListViewModel = ToDoListViewModel()
     
     var body: some View {
         NavigationView {
@@ -25,7 +25,7 @@ struct ContentView: View {
                                         .padding()
                                 } else {
                                     ForEach(viewModel.todoList, id: \.self) { item in
-                                        ToDoListRow(toDoItem: item)
+                                        ToDoListRow(toDoItem: item, viewModel: viewModel)
                                     }
                                     .onDelete(perform: deleteItem)
                                 }
@@ -41,7 +41,7 @@ struct ContentView: View {
             .navigationTitle("To Do List")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: AddItemView()) {
+                    NavigationLink(destination: AddItemView(viewModel: viewModel)) {
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: 32))
                             .foregroundColor(.blue)
@@ -94,7 +94,6 @@ extension ContentView {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ToDoListViewModel())
     }
 }
 
