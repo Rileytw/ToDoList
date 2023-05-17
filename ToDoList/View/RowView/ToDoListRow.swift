@@ -22,18 +22,20 @@ struct ToDoListRow: View {
                         .foregroundColor(.gray)
                     Spacer()
                     HStack {
-                        Text("created Date:")
-                            .font(.subheadline)
-                        Text(Utils.dateToString(toDoItem.createdDate))
-                            .font(.subheadline)
-                    }
-                    HStack {
                         Text("Due Date:")
                             .font(.subheadline)
                             .foregroundColor(.red)
                         Text(Utils.dateToString(toDoItem.dueDate))
                             .font(.subheadline)
                             .foregroundColor(.red)
+                    }
+                    HStack {
+                        Text("created Date:")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text(Utils.dateToString(toDoItem.createdDate))
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
                     }
                     HStack {
                         Text("Location:")
