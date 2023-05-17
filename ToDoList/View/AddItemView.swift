@@ -16,7 +16,6 @@ struct AddItemView: View {
     @Environment(\.presentationMode) var presentationMode
 
     @ObservedObject var viewModel: ToDoListViewModel
-//    @StateObject var locationManager = LocationManager()
     
     var body: some View {
         ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
