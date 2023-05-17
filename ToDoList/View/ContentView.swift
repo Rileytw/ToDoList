@@ -33,6 +33,7 @@ struct ContentView: View {
                                 ForEach(viewModel.quote, id: \.self) { item in
                                     QuoteRow(quote: item)
                                 }
+                                DailyQuoteRow()
                             }
                         }
                 }

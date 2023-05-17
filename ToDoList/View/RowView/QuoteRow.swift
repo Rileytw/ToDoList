@@ -48,3 +48,15 @@ struct QuoteRow: View {
         
     }
 }
+
+
+struct DailyQuoteRow: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(DailyQuoteWrapper().getDailyQuote())
+            Text("From DailyQuote")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+    }
+}
