@@ -15,6 +15,7 @@
 		3536999E2A1355300069E151 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536999D2A1355300069E151 /* ItemDetailView.swift */; };
 		354593662A5443FE007E539C /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593652A5443FE007E539C /* EditItemViewController.swift */; };
 		354593682A544511007E539C /* EditViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593672A544511007E539C /* EditViewWrapper.swift */; };
+		3545936B2A544E4D007E539C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3545936A2A544E4D007E539C /* SnapKit */; };
 		35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
 		35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D852A11FDD8005E96CE /* AddItemView.swift */; };
 		35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */; };
@@ -72,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35F1D0442A13693E00EA05D0 /* Alamofire in Frameworks */,
+				3545936B2A544E4D007E539C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +229,7 @@
 			name = ToDoList;
 			packageProductDependencies = (
 				35F1D0432A13693E00EA05D0 /* Alamofire */,
+				3545936A2A544E4D007E539C /* SnapKit */,
 			);
 			productName = ToDoList;
 			productReference = 35E70B672A114BC500B6BF57 /* ToDoList.app */;
@@ -259,6 +262,7 @@
 			mainGroup = 35E70B5E2A114BC500B6BF57;
 			packageReferences = (
 				35F1D0422A13693E00EA05D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				354593692A544E4D007E539C /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 35E70B682A114BC500B6BF57 /* Products */;
 			projectDirPath = "";
@@ -521,6 +525,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		354593692A544E4D007E539C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		35F1D0422A13693E00EA05D0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -532,6 +544,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3545936A2A544E4D007E539C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 354593692A544E4D007E539C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		35F1D0432A13693E00EA05D0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 35F1D0422A13693E00EA05D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
