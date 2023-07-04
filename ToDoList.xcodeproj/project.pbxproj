@@ -13,6 +13,7 @@
 		3536999A2A1352360069E151 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353699992A1352360069E151 /* EditItemView.swift */; };
 		3536999C2A1353F50069E151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536999B2A1353F50069E151 /* Utils.swift */; };
 		3536999E2A1355300069E151 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536999D2A1355300069E151 /* ItemDetailView.swift */; };
+		354593662A5443FE007E539C /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593652A5443FE007E539C /* EditItemViewController.swift */; };
 		35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
 		35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D852A11FDD8005E96CE /* AddItemView.swift */; };
 		35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */; };
@@ -40,6 +41,7 @@
 		353699992A1352360069E151 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		3536999B2A1353F50069E151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		3536999D2A1355300069E151 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		354593652A5443FE007E539C /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
 		35CA4D832A11E462005E96CE /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		35CA4D852A11FDD8005E96CE /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				35E70B6C2A114BC500B6BF57 /* ContentView.swift */,
 				35CA4D852A11FDD8005E96CE /* AddItemView.swift */,
 				353699992A1352360069E151 /* EditItemView.swift */,
+				354593652A5443FE007E539C /* EditItemViewController.swift */,
 				3536999D2A1355300069E151 /* ItemDetailView.swift */,
 			);
 			path = View;
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35F1D0A52A149ABB00EA05D0 /* daily_quote.cpp in Sources */,
+				354593662A5443FE007E539C /* EditItemViewController.swift in Sources */,
 				35E70B6D2A114BC500B6BF57 /* ContentView.swift in Sources */,
 				35F1D0512A1379A700EA05D0 /* QuoteRow.swift in Sources */,
 				35F1D04B2A136B0600EA05D0 /* QuotableRouter.swift in Sources */,
