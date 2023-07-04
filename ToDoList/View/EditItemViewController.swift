@@ -13,6 +13,7 @@ class EditItemViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: String(describing: ItemTableViewCell.self))
+        tableView.register(DatePickerTableViewCell.self, forCellReuseIdentifier: String(describing: DatePickerTableViewCell.self))
         return tableView
     }()
     

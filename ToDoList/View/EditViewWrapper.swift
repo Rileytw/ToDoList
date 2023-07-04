@@ -27,21 +27,53 @@ struct EditViewWrapper: UIViewControllerRepresentable {
     
     class Coordinator: NSObject, UITableViewDelegate, UITableViewDataSource {
         var parent: EditViewWrapper
+        var list = ItemList.allCases
         
         init(_ editViewWrapper: EditViewWrapper) {
             self.parent = editViewWrapper
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 4
+            return ItemList.allCases.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemTableViewCell.self), for: indexPath)
-            guard let itemCell = cell as? ItemTableViewCell else { return cell }
-            itemCell.configure(title: "TestTitle", content: "TestDescription")
-            return itemCell
+            switch list[indexPath.row] {
+            case .title, .description, .location:
+                let itemCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemTableViewCell.self), for: indexPath)
+                guard let itemCell = itemCell as? ItemTableViewCell else { return itemCell }
+                itemCell.configure(title: list[indexPath.row].titleName, content: "TestDescription")
+                return itemCell
+            case .createdDate, .dueDate:
+                let datePickerCell = tableView.dequeueReusableCell(withIdentifier: String(describing: DatePickerTableViewCell.self), for: indexPath)
+                guard let datePickerCell = datePickerCell as? DatePickerTableViewCell else { return datePickerCell }
+                datePickerCell.configure(title: list[indexPath.row].titleName, date: Date())
+                return datePickerCell
+            }
         }
     }
     
+}
+
+enum ItemList: Int, CaseIterable {
+    case title
+    case description
+    case createdDate
+    case dueDate
+    case location
+    
+    var titleName: String {
+        switch self {
+        case .title:
+            return "Title"
+        case .description:
+            return "Description"
+        case .createdDate:
+            return "Created Date"
+        case .dueDate:
+            return "Due Date"
+        case .location:
+            return "Location"
+        }
+    }
 }

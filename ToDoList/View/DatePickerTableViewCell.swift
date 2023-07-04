@@ -1,5 +1,5 @@
 //
-//  ItemTableViewCell.swift
+//  DatePickerTableViewCell.swift
 //  ToDoList
 //
 //  Created by Lei on 2023/7/4.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+class DatePickerTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
-    private let contextTextField: UITextField = {
-        let textField = UITextField()
-        return textField
+    private let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        return datePicker
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -29,9 +29,9 @@ class ItemTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(title: String, content: String) {
+    func configure(title: String, date: Date) {
         titleLabel.text = title
-        contextTextField.text = content
+        datePicker.date = date
     }
     
     private func setupConstraint() {
@@ -39,14 +39,14 @@ class ItemTableViewCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-16)
         }
         
-        contentView.addSubview(contextTextField)
-        contextTextField.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.bottom.equalToSuperview().offset(-8)
+        contentView.addSubview(datePicker)
+        datePicker.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.top)
+            make.bottom.equalTo(titleLabel.snp.bottom)
+            make.trailing.equalToSuperview().offset(-8)
         }
     }
-    
 }

@@ -17,6 +17,7 @@
 		354593682A544511007E539C /* EditViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593672A544511007E539C /* EditViewWrapper.swift */; };
 		3545936B2A544E4D007E539C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3545936A2A544E4D007E539C /* SnapKit */; };
 		3545936D2A5450F3007E539C /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545936C2A5450F3007E539C /* ItemTableViewCell.swift */; };
+		3545936F2A545D3C007E539C /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545936E2A545D3C007E539C /* DatePickerTableViewCell.swift */; };
 		35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
 		35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D852A11FDD8005E96CE /* AddItemView.swift */; };
 		35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */; };
@@ -47,6 +48,7 @@
 		354593652A5443FE007E539C /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
 		354593672A544511007E539C /* EditViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewWrapper.swift; sourceTree = "<group>"; };
 		3545936C2A5450F3007E539C /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		3545936E2A545D3C007E539C /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		35CA4D832A11E462005E96CE /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		35CA4D852A11FDD8005E96CE /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				353699992A1352360069E151 /* EditItemView.swift */,
 				354593652A5443FE007E539C /* EditItemViewController.swift */,
 				3545936C2A5450F3007E539C /* ItemTableViewCell.swift */,
+				3545936E2A545D3C007E539C /* DatePickerTableViewCell.swift */,
 				354593672A544511007E539C /* EditViewWrapper.swift */,
 				3536999D2A1355300069E151 /* ItemDetailView.swift */,
 			);
@@ -316,6 +319,7 @@
 				35F1D04D2A136C1D00EA05D0 /* NetworkManager.swift in Sources */,
 				353699982A127B200069E151 /* ToDoList.xcdatamodeld in Sources */,
 				3536999A2A1352360069E151 /* EditItemView.swift in Sources */,
+				3545936F2A545D3C007E539C /* DatePickerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
