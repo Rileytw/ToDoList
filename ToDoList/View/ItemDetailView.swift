@@ -18,7 +18,7 @@ struct ItemDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
             VStack(alignment: .leading) {
-                Text("Title")
+                Text(ItemList.title.titleName)
                     .font(.title3)
                     .bold()
                 TextField("Title...", text: $title)
@@ -26,7 +26,7 @@ struct ItemDetailView: View {
             }
             
             VStack(alignment: .leading) {
-                Text("Description")
+                Text(ItemList.description.titleName)
                     .font(.title3)
                     .bold()
                 TextField("Description...", text: $description)
@@ -36,16 +36,16 @@ struct ItemDetailView: View {
             DatePicker(
                 selection: $createdDate,
                 displayedComponents: .date) {
-                    Text("Created Date").foregroundColor(Color(.gray))
+                    Text(ItemList.createdDate.titleName).foregroundColor(Color(.gray))
                 }
             DatePicker(
                 selection: $dueDate,
                 displayedComponents: .date) {
-                    Text("Due Date").foregroundColor(Color(.gray))
+                    Text(ItemList.dueDate.titleName).foregroundColor(Color(.gray))
                 }
             
             VStack(alignment: .leading) {
-                Text("Location")
+                Text(ItemList.location.titleName)
                     .font(.title3)
                     .bold()
                 if viewModel.location.isEmpty {
