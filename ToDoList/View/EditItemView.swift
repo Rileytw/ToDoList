@@ -17,17 +17,38 @@ struct EditItemView: View {
     @StateObject var locationManager = LocationManager()
 
     var item: ToDoItem
+
+    @State private var selected = EditVersion.swiftUI
     
     var body: some View {
-        ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
-            .navigationBarTitle(Text("Edit Item"),
-                                displayMode: .inline)
-            .onAppear {
-                presentOldData()
+        VStack {
+            Picker("Edit Version", selection: $selected) {
+                Text(EditVersion.swiftUI.rawValue)
+                    .tag(EditVersion.swiftUI)
+                Text(EditVersion.UIKit.rawValue)
+                    .tag(EditVersion.UIKit)
             }
-            .onDisappear {
-                editItem()
+            .pickerStyle(.segmented)
+            .padding()
+            
+            switch selected {
+            case .swiftUI:
+                
+                ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
+                    .navigationBarTitle(Text("Edit Item"),
+                                        displayMode: .inline)
+                    .onAppear {
+                        presentOldData()
+                    }
+                    .onDisappear {
+                        editItem()
+                    }
+            case .UIKit:
+                EditViewWrapper()
+                    .navigationBarTitle(Text("Edit Item"),
+                                        displayMode: .inline)
             }
+        }
     }
     
     private func presentOldData() {
@@ -51,6 +72,11 @@ struct EditItemView: View {
                                    location: location)
     }
 
+}
+
+enum EditVersion: String {
+    case swiftUI = "SwiftUI"
+    case UIKit = "UIKit"
 }
 
 struct EditItemView_Previews: PreviewProvider {

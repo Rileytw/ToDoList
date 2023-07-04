@@ -14,6 +14,7 @@
 		3536999C2A1353F50069E151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536999B2A1353F50069E151 /* Utils.swift */; };
 		3536999E2A1355300069E151 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536999D2A1355300069E151 /* ItemDetailView.swift */; };
 		354593662A5443FE007E539C /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593652A5443FE007E539C /* EditItemViewController.swift */; };
+		354593682A544511007E539C /* EditViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593672A544511007E539C /* EditViewWrapper.swift */; };
 		35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
 		35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D852A11FDD8005E96CE /* AddItemView.swift */; };
 		35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */; };
@@ -42,6 +43,7 @@
 		3536999B2A1353F50069E151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		3536999D2A1355300069E151 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		354593652A5443FE007E539C /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
+		354593672A544511007E539C /* EditViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewWrapper.swift; sourceTree = "<group>"; };
 		35CA4D832A11E462005E96CE /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		35CA4D852A11FDD8005E96CE /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				35CA4D852A11FDD8005E96CE /* AddItemView.swift */,
 				353699992A1352360069E151 /* EditItemView.swift */,
 				354593652A5443FE007E539C /* EditItemViewController.swift */,
+				354593672A544511007E539C /* EditViewWrapper.swift */,
 				3536999D2A1355300069E151 /* ItemDetailView.swift */,
 			);
 			path = View;
@@ -293,6 +296,7 @@
 				35F1D0532A1379C800EA05D0 /* ToDoListRow.swift in Sources */,
 				35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */,
 				35F1D04F2A136F5F00EA05D0 /* Quote.swift in Sources */,
+				354593682A544511007E539C /* EditViewWrapper.swift in Sources */,
 				3536999E2A1355300069E151 /* ItemDetailView.swift in Sources */,
 				353699922A122F8C0069E151 /* LocationManager.swift in Sources */,
 				35E70B6B2A114BC500B6BF57 /* ToDoListApp.swift in Sources */,
