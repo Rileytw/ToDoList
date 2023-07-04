@@ -44,7 +44,7 @@ struct EditItemView: View {
                         editItem()
                     }
             case .UIKit:
-                EditViewWrapper()
+                EditViewWrapper(item: item)
                     .navigationBarTitle(Text("Edit Item"),
                                         displayMode: .inline)
             }
