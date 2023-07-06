@@ -28,7 +28,7 @@ struct EditViewWrapper: UIViewControllerRepresentable {
         
     }
     
-    class Coordinator: NSObject, UITableViewDelegate, UITableViewDataSource, ItemTableViewCellDelegate {
+    class Coordinator: NSObject, UITableViewDelegate, UITableViewDataSource, ItemTableViewCellDelegate, DatePickerTableViewCellDelegate {
         var parent: EditViewWrapper
         var list = ItemList.allCases
         var item: ToDoItem
@@ -58,6 +58,7 @@ struct EditViewWrapper: UIViewControllerRepresentable {
                 let datePickerCell = tableView.dequeueReusableCell(withIdentifier: String(describing: DatePickerTableViewCell.self), for: indexPath)
                 guard let datePickerCell = datePickerCell as? DatePickerTableViewCell else { return datePickerCell }
                 let date = getDate(list: list[indexPath.row])
+                datePickerCell.itemType = list[indexPath.row]
                 datePickerCell.configure(title: list[indexPath.row].titleName, date: date)
                 return datePickerCell
             }
@@ -104,7 +105,22 @@ struct EditViewWrapper: UIViewControllerRepresentable {
             default:
                 break
             }
-            
+            updateLocalData()
+        }
+        
+        func dateDidChanged(itemType: ItemList, date: Date) {
+            switch itemType {
+            case .createdDate:
+                item.createdDate = date
+            case .dueDate:
+                item.dueDate = date
+            default:
+                break
+            }
+            updateLocalData()
+        }
+        
+        private func updateLocalData() {
             viewModel.editLocalData(toDoItem: item,
                                     title: item.title,
                                     description: item.description,

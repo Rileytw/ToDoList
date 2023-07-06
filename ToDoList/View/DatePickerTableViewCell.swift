@@ -7,15 +7,25 @@
 
 import UIKit
 
+protocol DatePickerTableViewCellDelegate: AnyObject {
+    func dateDidChanged(itemType: ItemList, date: Date)
+}
+
 class DatePickerTableViewCell: UITableViewCell {
+    
+    weak var delegate: DatePickerTableViewCellDelegate?
+    
+    var itemType: ItemList?
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    private let datePicker: UIDatePicker = {
+    private lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
         return datePicker
     }()
     
@@ -48,5 +58,11 @@ class DatePickerTableViewCell: UITableViewCell {
             make.bottom.equalTo(titleLabel.snp.bottom)
             make.trailing.equalToSuperview().offset(-8)
         }
+    }
+    
+    @objc func datePickerChanged() {
+        guard let itemType = itemType else { return }
+        let date = datePicker.date
+        delegate?.dateDidChanged(itemType: itemType, date: date)
     }
 }
