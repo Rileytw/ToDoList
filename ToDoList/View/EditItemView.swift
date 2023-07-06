@@ -33,7 +33,6 @@ struct EditItemView: View {
             
             switch selected {
             case .swiftUI:
-                
                 ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
                     .navigationBarTitle(Text("Edit Item"),
                                         displayMode: .inline)
@@ -47,6 +46,9 @@ struct EditItemView: View {
                 EditViewWrapper(item: item)
                     .navigationBarTitle(Text("Edit Item"),
                                         displayMode: .inline)
+                    .onDisappear {
+                        editItem()
+                    }
             }
         }
     }

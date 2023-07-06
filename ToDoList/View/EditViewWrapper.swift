@@ -27,7 +27,7 @@ struct EditViewWrapper: UIViewControllerRepresentable {
         
     }
     
-    class Coordinator: NSObject, UITableViewDelegate, UITableViewDataSource {
+    class Coordinator: NSObject, UITableViewDelegate, UITableViewDataSource, ItemTableViewCellDelegate {
         var parent: EditViewWrapper
         var list = ItemList.allCases
         var item: ToDoItem
@@ -48,6 +48,7 @@ struct EditViewWrapper: UIViewControllerRepresentable {
                 guard let itemCell = itemCell as? ItemTableViewCell else { return itemCell }
                 let content = getContent(list: list[indexPath.row])
                 itemCell.configure(title: list[indexPath.row].titleName, content: content)
+                itemCell.delegate = self
                 return itemCell
             case .createdDate, .dueDate:
                 let datePickerCell = tableView.dequeueReusableCell(withIdentifier: String(describing: DatePickerTableViewCell.self), for: indexPath)
@@ -86,6 +87,19 @@ struct EditViewWrapper: UIViewControllerRepresentable {
             }
             
             return date
+        }
+        
+        func textFieldDidEndEditing(itemType: ItemList, text: String) {
+            switch itemType {
+            case .title:
+                item.title = text
+            case .description:
+                item.description = text
+            case .location:
+                item.location = text
+            default:
+                break
+            }
         }
     }
     

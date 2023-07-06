@@ -7,15 +7,25 @@
 
 import UIKit
 
+protocol ItemTableViewCellDelegate: AnyObject {
+    func textFieldDidEndEditing(itemType: ItemList, text: String)
+}
+
 class ItemTableViewCell: UITableViewCell {
+    
+    weak var delegate: ItemTableViewCellDelegate?
+    
+    var itemType: ItemList?
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
-    private let contextTextField: UITextField = {
+    private lazy var contextTextField: UITextField = {
         let textField = UITextField()
+        textField.delegate = self
         return textField
     }()
     
@@ -49,4 +59,11 @@ class ItemTableViewCell: UITableViewCell {
         }
     }
     
+}
+
+extension ItemTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let itemType = itemType else { return }
+        delegate?.textFieldDidEndEditing(itemType: itemType, text: textField.text ?? "")
+    }
 }
