@@ -86,6 +86,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		354593722A56B7DB007E539C /* EditView */ = {
+			isa = PBXGroup;
+			children = (
+				353699992A1352360069E151 /* EditItemView.swift */,
+				354593652A5443FE007E539C /* EditItemViewController.swift */,
+				3545936C2A5450F3007E539C /* ItemTableViewCell.swift */,
+				3545936E2A545D3C007E539C /* DatePickerTableViewCell.swift */,
+				354593672A544511007E539C /* EditViewWrapper.swift */,
+			);
+			path = EditView;
+			sourceTree = "<group>";
+		};
 		35E70B5E2A114BC500B6BF57 = {
 			isa = PBXGroup;
 			children = (
@@ -144,14 +156,10 @@
 		35F1D0542A137B6E00EA05D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				354593722A56B7DB007E539C /* EditView */,
 				35F1D0552A137B8700EA05D0 /* RowView */,
 				35E70B6C2A114BC500B6BF57 /* ContentView.swift */,
 				35CA4D852A11FDD8005E96CE /* AddItemView.swift */,
-				353699992A1352360069E151 /* EditItemView.swift */,
-				354593652A5443FE007E539C /* EditItemViewController.swift */,
-				3545936C2A5450F3007E539C /* ItemTableViewCell.swift */,
-				3545936E2A545D3C007E539C /* DatePickerTableViewCell.swift */,
-				354593672A544511007E539C /* EditViewWrapper.swift */,
 				3536999D2A1355300069E151 /* ItemDetailView.swift */,
 			);
 			path = View;
