@@ -43,12 +43,9 @@ struct EditItemView: View {
                         editItem()
                     }
             case .UIKit:
-                EditViewWrapper(item: item)
+                EditViewWrapper(item: item, viewModel: viewModel)
                     .navigationBarTitle(Text("Edit Item"),
                                         displayMode: .inline)
-                    .onDisappear {
-                        editItem()
-                    }
             }
         }
     }
@@ -66,7 +63,7 @@ struct EditItemView: View {
                return
            }
            
-           viewModel.editLocalData(toDoItem: item,
+        viewModel.editLocalData(toDoItem: item,
                                    title: title,
                                    description: description,
                                    createdDate: createdDate,

@@ -10,9 +10,10 @@ import UIKit
 
 struct EditViewWrapper: UIViewControllerRepresentable {
     var item: ToDoItem
+    @ObservedObject var viewModel: ToDoListViewModel
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, item: item)
+        Coordinator(self, item: item, viewModel: viewModel)
     }
     
     func makeUIViewController(context: Context) -> UIViewController  {
@@ -31,10 +32,12 @@ struct EditViewWrapper: UIViewControllerRepresentable {
         var parent: EditViewWrapper
         var list = ItemList.allCases
         var item: ToDoItem
+        @ObservedObject var viewModel: ToDoListViewModel
         
-        init(_ editViewWrapper: EditViewWrapper, item: ToDoItem) {
+        init(_ editViewWrapper: EditViewWrapper, item: ToDoItem, viewModel: ToDoListViewModel) {
             self.parent = editViewWrapper
             self.item = item
+            self.viewModel = viewModel
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +50,7 @@ struct EditViewWrapper: UIViewControllerRepresentable {
                 let itemCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemTableViewCell.self), for: indexPath)
                 guard let itemCell = itemCell as? ItemTableViewCell else { return itemCell }
                 let content = getContent(list: list[indexPath.row])
+                itemCell.itemType = list[indexPath.row]
                 itemCell.configure(title: list[indexPath.row].titleName, content: content)
                 itemCell.delegate = self
                 return itemCell
@@ -100,6 +104,13 @@ struct EditViewWrapper: UIViewControllerRepresentable {
             default:
                 break
             }
+            
+            viewModel.editLocalData(toDoItem: item,
+                                    title: item.title,
+                                    description: item.description,
+                                    createdDate: item.createdDate,
+                                    dueDate: item.dueDate,
+                                    location: item.location)
         }
     }
     
