@@ -18,7 +18,7 @@ class Utils {
         return locationString
     }
     
-    static func dateToString(_ date: Date) -> String {
+    static func convertDateToString(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         let dateString = dateFormatter.string(from: date)

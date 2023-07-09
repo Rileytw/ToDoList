@@ -35,14 +35,14 @@ struct AddItemView: View {
                 Group {
                     Text(ItemList.createdDate.titleName)
                         .bold()
-                    TextField(Utils.dateToString(Date()), text: $createdDateString)
+                    TextField(Utils.convertDateToString(Date()), text: $createdDateString)
                     Divider()
                 }
                 
                 Group {
                     Text(ItemList.dueDate.titleName)
                         .bold()
-                    TextField(Utils.dateToString(Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()), text: $dueDateString)
+                    TextField(Utils.convertDateToString(Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()), text: $dueDateString)
                     Divider()
                 }
                 
@@ -56,7 +56,7 @@ struct AddItemView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        print("Add Item!")
+                       addNewItem()
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.largeTitle)
@@ -70,6 +70,17 @@ struct AddItemView: View {
         .onAppear {
             
         }
+    }
+    
+    private func addNewItem() {
+        let newItem = ToDoItem(title: title,
+                               description: description,
+                               createdDate: Utils.convertStringToDate(createdDateString) ?? Date(),
+                               dueDate: Utils.convertStringToDate(dueDateString) ?? Date(),
+                               location: location)
+//        viewModel.addNewItem(newItem: newItem)
+        print("===new item:\(newItem)")
+        
     }
     
 }
