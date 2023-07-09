@@ -237,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */,
-				3545939D2A5B125D007E539C /* LocationAdaptor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -254,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				353699912A122F8C0069E151 /* LocationManager.swift */,
+				3545939D2A5B125D007E539C /* LocationAdaptor.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
