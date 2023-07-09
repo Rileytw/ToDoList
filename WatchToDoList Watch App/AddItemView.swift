@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddItemView: View {
+    @ObservedObject var locationServiceAdaptor = LocationServiceAdaptor()
+    
     @State private var title: String = ""
     @State private var description: String = ""
     @State private var createdDateString: String = ""
@@ -49,7 +51,7 @@ struct AddItemView: View {
                 Group {
                     Text(ItemList.location.titleName)
                         .bold()
-                    TextField("", text: $location)
+                    TextField(locationServiceAdaptor.location, text: $location)
                     Divider()
                 }
                 
@@ -68,7 +70,9 @@ struct AddItemView: View {
         }
         
         .onAppear {
-            
+            locationServiceAdaptor.getLocation()
+            location = locationServiceAdaptor.location
+            print("===location:\(location)")
         }
     }
     
