@@ -13,7 +13,7 @@ protocol LocationService {
 }
 
 class LocationServiceAdaptor: LocationService {
-    var location: String = ""
+    @Published var location: String = ""
     let locationManager = LocationManager()
     
     init() {

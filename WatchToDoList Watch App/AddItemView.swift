@@ -71,8 +71,6 @@ struct AddItemView: View {
         
         .onAppear {
             locationServiceAdaptor.getLocation()
-            location = locationServiceAdaptor.location
-            print("===location:\(location)")
         }
     }
     
@@ -82,7 +80,6 @@ struct AddItemView: View {
                                createdDate: Utils.convertStringToDate(createdDateString) ?? Date(),
                                dueDate: Utils.convertStringToDate(dueDateString) ?? Date(),
                                location: location)
-//        viewModel.addNewItem(newItem: newItem)
         print("===new item:\(newItem)")
         
     }
