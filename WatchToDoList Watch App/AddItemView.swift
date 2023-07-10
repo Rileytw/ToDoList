@@ -17,6 +17,10 @@ struct AddItemView: View {
     @State private var dueDateString: String = ""
     @State private var location: String = ""
     
+    @State private var showAlert = false
+    @State private var alertType: AlertType = .dataSaving
+
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -61,7 +65,7 @@ struct AddItemView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                       addNewItem()
+                        checkDataFormat()
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.largeTitle)
@@ -71,7 +75,9 @@ struct AddItemView: View {
                 }
             }
         }
-        
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(alertType.title), message: Text(alertType.message), dismissButton: .default(Text("OK")))
+        }
         .onAppear {
             locationServiceAdaptor.getLocation()
         }
@@ -86,7 +92,10 @@ struct AddItemView: View {
                                location: newLocation)
         connectivityManager.sendItem(newItem)
         cleanItemData()
+        setAlert(alertType: .dataSaving)
     }
+    
+    
     
     private func cleanItemData() {
         title = ""
@@ -96,6 +105,58 @@ struct AddItemView: View {
         location = ""
     }
     
+    private func checkDataFormat() {
+        if validateDateFields() {
+            addNewItem()
+            
+        } else {
+            setAlert(alertType: .dataInvalid)
+        }
+    }
+    
+    private func validateDateFields() -> Bool {
+        var isCreatedDateStringValid: Bool = true
+        if !createdDateString.isEmpty {
+            isCreatedDateStringValid = Utils.validateDateFormat(dateString: createdDateString)
+        }
+        
+        var isDueDateStringValid: Bool = true
+        if !dueDateString.isEmpty {
+            isDueDateStringValid = Utils.validateDateFormat(dateString: dueDateString)
+        }
+        
+        return isCreatedDateStringValid && isDueDateStringValid
+    }
+    
+    private func setAlert(alertType: AlertType) {
+        self.alertType = alertType
+        showAlert = true
+    }
+}
+
+extension AddItemView {
+    enum AlertType {
+        case dataSaving
+        case dataInvalid
+        
+        var title: String {
+            switch self {
+            case .dataSaving:
+                return "Saving Data in iPhone"
+            case .dataInvalid:
+                return "Date format is incorrect"
+            }
+        }
+        
+        var message: String {
+            switch self {
+            case .dataSaving:
+                return ""
+            case .dataInvalid:
+                return  "Please modify date in the format of YYYY/MM/DD."
+            }
+        }
+    }
 }
 
 struct AddItemView_Previews: PreviewProvider {

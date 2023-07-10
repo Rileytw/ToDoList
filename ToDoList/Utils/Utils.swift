@@ -33,4 +33,9 @@ class Utils {
         return dateFormatter.date(from: dateString)
     }
 
+    static func validateDateFormat(dateString: String, format: String = "yyyy/MM/dd") -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: dateString) != nil
+    }
 }
