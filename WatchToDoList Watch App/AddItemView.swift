@@ -75,11 +75,12 @@ struct AddItemView: View {
     }
     
     private func addNewItem() {
+        let newLocation = location.isEmpty ? locationServiceAdaptor.location : location
         let newItem = ToDoItem(title: title,
                                description: description,
                                createdDate: Utils.convertStringToDate(createdDateString) ?? Date(),
                                dueDate: Utils.convertStringToDate(dueDateString) ?? Date(),
-                               location: location)
+                               location: newLocation)
         print("===new item:\(newItem)")
         
     }
