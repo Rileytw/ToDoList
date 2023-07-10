@@ -11,19 +11,16 @@ import Combine
 class ToDoListViewModel: ObservableObject {
     @Published var todoList: [ToDoItem] = []
     @Published var quote: [Quote] = []
-    @Published var location: String = ""
     @Published var isError: Bool = false
     private var listItems: [ListItem] = []
     var errorMessage: String?
     
     let localDataManager = LocalDataManager()
-    let locationManager = LocationManager()
     
     let networkManager: HTTPClient
     
     init(networkManager: HTTPClient = NetworkManager()) {
         self.networkManager = networkManager
-        locationManager.delegate = self
     }
     
     func addNewItem(newItem: ToDoItem) {
@@ -119,46 +116,5 @@ class ToDoListViewModel: ObservableObject {
             }
         }
     }
-    
-    func getLocation() {
-        locationManager.requestLocation()
-    }
 }
 
-extension ToDoListViewModel: LocationDelegate {
-    func didGetLocation(location: String) {
-        self.location = location
-    }
-    
-    func locationRequestFailed(error: Error) {
-        self.isError = true
-        self.errorMessage = ErrorMessage.getLocationFailed.message + "\n \(error.localizedDescription)"
-    }
-}
-
-
-enum ErrorMessage {
-    case addLocalDataFailed
-    case fetchLocalDataFailed
-    case deleteLocalDataFailed
-    case editLocalDataFailed
-    case fetchAPIDataFailed(api: String)
-    case getLocationFailed
-    
-    var message: String {
-        switch self {
-        case .addLocalDataFailed:
-            return "Failed when adding data."
-        case .fetchLocalDataFailed:
-            return "Failed when fetching data."
-        case .deleteLocalDataFailed:
-            return "Failed when deleting data."
-        case .editLocalDataFailed:
-            return "Failed when editing data."
-        case .fetchAPIDataFailed(let api):
-            return "Failed when fetching data from API: \(api)."
-        case .getLocationFailed:
-            return "Failed when requesting location"
-        }
-    }
-}

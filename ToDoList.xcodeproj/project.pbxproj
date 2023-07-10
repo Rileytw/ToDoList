@@ -32,6 +32,8 @@
 		3545939E2A5B125D007E539C /* LocationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545939D2A5B125D007E539C /* LocationAdaptor.swift */; };
 		3545939F2A5B142E007E539C /* LocationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545939D2A5B125D007E539C /* LocationAdaptor.swift */; };
 		354593A02A5B149A007E539C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353699912A122F8C0069E151 /* LocationManager.swift */; };
+		354593AA2A5BB4F4007E539C /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593A92A5BB4F4007E539C /* ErrorMessage.swift */; };
+		354593AB2A5BB4F4007E539C /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593A92A5BB4F4007E539C /* ErrorMessage.swift */; };
 		35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
 		35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D852A11FDD8005E96CE /* AddItemView.swift */; };
 		35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */; };
@@ -71,6 +73,7 @@
 		354593802A585027007E539C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		354593972A58599F007E539C /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		3545939D2A5B125D007E539C /* LocationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAdaptor.swift; sourceTree = "<group>"; };
+		354593A92A5BB4F4007E539C /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		35CA4D832A11E462005E96CE /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		35CA4D852A11FDD8005E96CE /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 				35CA4D832A11E462005E96CE /* ToDoItem.swift */,
 				35F1D04E2A136F5F00EA05D0 /* Quote.swift */,
 				354593702A546C88007E539C /* ItemList.swift */,
+				354593A92A5BB4F4007E539C /* ErrorMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,6 +393,7 @@
 			files = (
 				354593852A58510A007E539C /* ToDoListApp.swift in Sources */,
 				354593882A58511A007E539C /* ToDoItem.swift in Sources */,
+				354593AB2A5BB4F4007E539C /* ErrorMessage.swift in Sources */,
 				354593A02A5B149A007E539C /* LocationManager.swift in Sources */,
 				354593892A58511E007E539C /* ItemList.swift in Sources */,
 				3545937C2A585025007E539C /* ContentView.swift in Sources */,
@@ -426,6 +431,7 @@
 				3545936D2A5450F3007E539C /* ItemTableViewCell.swift in Sources */,
 				35F1D0462A136A2D00EA05D0 /* EndPointType.swift in Sources */,
 				35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */,
+				354593AA2A5BB4F4007E539C /* ErrorMessage.swift in Sources */,
 				35F1D04D2A136C1D00EA05D0 /* NetworkManager.swift in Sources */,
 				353699982A127B200069E151 /* ToDoList.xcdatamodeld in Sources */,
 				3536999A2A1352360069E151 /* EditItemView.swift in Sources */,

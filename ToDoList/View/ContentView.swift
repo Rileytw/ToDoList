@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var isListEmpty = false
     @State private var isFistAppear = true
     @ObservedObject var viewModel: ToDoListViewModel = ToDoListViewModel()
+    @ObservedObject var locationServiceAdaptor = LocationServiceAdaptor()
     
     var body: some View {
         NavigationView {
@@ -41,7 +42,8 @@ struct ContentView: View {
             .navigationTitle("To Do List")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: AddItemView(viewModel: viewModel)) {
+                    NavigationLink(destination: AddItemView(viewModel: viewModel,
+                                                            locationServiceAdaptor: locationServiceAdaptor)) {
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: 32))
                             .foregroundColor(.blue)
@@ -60,6 +62,9 @@ struct ContentView: View {
             }
             .alert(isPresented: $viewModel.isError) {
                 Alert(title: Text("Error Message"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            }
+            .alert(isPresented: $locationServiceAdaptor.isError) {
+                Alert(title: Text("Error Message"), message: Text(locationServiceAdaptor.errorMessage ?? ""), dismissButton: .default(Text("OK")))
             }
             .alert(isPresented: $isListEmpty) {
                 Alert(title: Text("Hint"), message: Text("Tap ➕ button to add to do item!"), dismissButton: .default(Text("OK")))

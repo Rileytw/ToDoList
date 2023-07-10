@@ -33,7 +33,7 @@ struct EditItemView: View {
             
             switch selected {
             case .swiftUI:
-                ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
+                ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel, locationServiceAdaptor: LocationServiceAdaptor())
                     .navigationBarTitle(Text("Edit Item"),
                                         displayMode: .inline)
                     .onAppear {

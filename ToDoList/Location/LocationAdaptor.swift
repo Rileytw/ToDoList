@@ -9,11 +9,16 @@ import Foundation
 
 protocol LocationService {
     var location: String { get set }
+    var isError: Bool { get set }
+    var errorMessage: String? { get set }
     func getLocation()
 }
 
 class LocationServiceAdaptor: LocationService {
     @Published var location: String = ""
+    @Published var isError: Bool = false
+    var errorMessage: String?
+    
     let locationManager = LocationManager()
     
     init() {
@@ -31,7 +36,8 @@ extension LocationServiceAdaptor: LocationDelegate {
     }
     
     func locationRequestFailed(error: Error) {
-        print("Error:\(error.localizedDescription)")
+        self.isError = true
+        self.errorMessage = ErrorMessage.getLocationFailed.message + "\n \(error.localizedDescription)"
     }
 }
 
