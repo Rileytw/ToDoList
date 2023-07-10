@@ -18,10 +18,24 @@ class Utils {
         return locationString
     }
     
-    static func dateToString(_ date: Date) -> String {
+    static func convertDateToString(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         let dateString = dateFormatter.string(from: date)
         return dateString
+    }
+    
+    static func convertStringToDate(_ dateString: String, format: String = "yyyy/MM/dd") -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: dateString)
+    }
+
+    static func validateDateFormat(dateString: String, format: String = "yyyy/MM/dd") -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: dateString) != nil
     }
 }

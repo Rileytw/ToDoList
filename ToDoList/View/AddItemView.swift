@@ -16,9 +16,10 @@ struct AddItemView: View {
     @Environment(\.presentationMode) var presentationMode
 
     @ObservedObject var viewModel: ToDoListViewModel
+    @ObservedObject var locationServiceAdaptor: LocationServiceAdaptor
     
     var body: some View {
-        ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel)
+        ItemDetailView(title: $title, description: $description, location: $location, createdDate: $createdDate, dueDate: $dueDate, viewModel: viewModel, locationServiceAdaptor: locationServiceAdaptor)
             .navigationBarTitle(Text("Add To Do Item"),
                                 displayMode: .inline)
             .navigationBarItems(
@@ -29,11 +30,13 @@ struct AddItemView: View {
     }
     
     private func addNewItem() {
+        let newLocation = location.isEmpty ? locationServiceAdaptor.location : location
+        
         let newItem = ToDoItem(title: title,
                                description: description,
                                createdDate: createdDate,
                                dueDate: dueDate,
-                               location: viewModel.location)
+                               location: newLocation)
         viewModel.addNewItem(newItem: newItem)
         presentationMode.wrappedValue.dismiss()
     }
@@ -41,6 +44,7 @@ struct AddItemView: View {
 
 struct AddItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddItemView(viewModel: ToDoListViewModel())
+        AddItemView(viewModel: ToDoListViewModel(),
+                    locationServiceAdaptor: LocationServiceAdaptor())
     }
 }

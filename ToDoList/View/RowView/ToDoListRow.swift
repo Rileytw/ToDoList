@@ -25,7 +25,7 @@ struct ToDoListRow: View {
                         Text("Due Date:")
                             .font(.subheadline)
                             .foregroundColor(.red)
-                        Text(Utils.dateToString(toDoItem.dueDate))
+                        Text(Utils.convertDateToString(toDoItem.dueDate))
                             .font(.subheadline)
                             .foregroundColor(.red)
                     }
@@ -33,7 +33,7 @@ struct ToDoListRow: View {
                         Text("created Date:")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text(Utils.dateToString(toDoItem.createdDate))
+                        Text(Utils.convertDateToString(toDoItem.createdDate))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }

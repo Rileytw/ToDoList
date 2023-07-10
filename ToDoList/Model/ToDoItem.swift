@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ToDoItem: Hashable {
+struct ToDoItem: Hashable, Codable {
     var title: String
     var description: String
     var createdDate: Date

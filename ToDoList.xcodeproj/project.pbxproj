@@ -19,6 +19,24 @@
 		3545936D2A5450F3007E539C /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545936C2A5450F3007E539C /* ItemTableViewCell.swift */; };
 		3545936F2A545D3C007E539C /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545936E2A545D3C007E539C /* DatePickerTableViewCell.swift */; };
 		354593712A546C88007E539C /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593702A546C88007E539C /* ItemList.swift */; };
+		3545937A2A585025007E539C /* WatchToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593792A585025007E539C /* WatchToDoListApp.swift */; };
+		3545937C2A585025007E539C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545937B2A585025007E539C /* ContentView.swift */; };
+		3545937E2A585027007E539C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3545937D2A585027007E539C /* Assets.xcassets */; };
+		354593812A585027007E539C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 354593802A585027007E539C /* Preview Assets.xcassets */; };
+		354593852A58510A007E539C /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70B6A2A114BC500B6BF57 /* ToDoListApp.swift */; };
+		354593882A58511A007E539C /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
+		354593892A58511E007E539C /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593702A546C88007E539C /* ItemList.swift */; };
+		3545938A2A585121007E539C /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 353699962A127B200069E151 /* ToDoList.xcdatamodeld */; };
+		354593982A58599F007E539C /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593972A58599F007E539C /* AddItemView.swift */; };
+		354593992A59BAD6007E539C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536999B2A1353F50069E151 /* Utils.swift */; };
+		3545939E2A5B125D007E539C /* LocationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545939D2A5B125D007E539C /* LocationAdaptor.swift */; };
+		3545939F2A5B142E007E539C /* LocationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545939D2A5B125D007E539C /* LocationAdaptor.swift */; };
+		354593A02A5B149A007E539C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353699912A122F8C0069E151 /* LocationManager.swift */; };
+		354593AA2A5BB4F4007E539C /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593A92A5BB4F4007E539C /* AlertMessage.swift */; };
+		354593AB2A5BB4F4007E539C /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593A92A5BB4F4007E539C /* AlertMessage.swift */; };
+		354593AE2A5BB7B5007E539C /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593AD2A5BB7B5007E539C /* WatchConnectivityManager.swift */; };
+		354593AF2A5BB7B5007E539C /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354593AD2A5BB7B5007E539C /* WatchConnectivityManager.swift */; };
+		354593F22A5C1413007E539C /* WatchToDoList Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 354593772A585025007E539C /* WatchToDoList Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35CA4D842A11E462005E96CE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D832A11E462005E96CE /* ToDoItem.swift */; };
 		35CA4D862A11FDD8005E96CE /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D852A11FDD8005E96CE /* AddItemView.swift */; };
 		35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */; };
@@ -38,6 +56,30 @@
 		35F1D0A82A149C0300EA05D0 /* DailyQuoteWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 35F1D0A72A149C0300EA05D0 /* DailyQuoteWrapper.mm */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		354593F32A5C1413007E539C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35E70B5F2A114BC500B6BF57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 354593762A585025007E539C;
+			remoteInfo = "WatchToDoList Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		354593F52A5C1413007E539C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				354593F22A5C1413007E539C /* WatchToDoList Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		353699912A122F8C0069E151 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		353699932A1230480069E151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +93,15 @@
 		3545936C2A5450F3007E539C /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		3545936E2A545D3C007E539C /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		354593702A546C88007E539C /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
+		354593772A585025007E539C /* WatchToDoList Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchToDoList Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		354593792A585025007E539C /* WatchToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToDoListApp.swift; sourceTree = "<group>"; };
+		3545937B2A585025007E539C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3545937D2A585027007E539C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		354593802A585027007E539C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		354593972A58599F007E539C /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		3545939D2A5B125D007E539C /* LocationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAdaptor.swift; sourceTree = "<group>"; };
+		354593A92A5BB4F4007E539C /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
+		354593AD2A5BB7B5007E539C /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		35CA4D832A11E462005E96CE /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		35CA4D852A11FDD8005E96CE /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		35CA4D872A12126A005E96CE /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
@@ -74,6 +125,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		354593742A585025007E539C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35E70B642A114BC500B6BF57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,11 +156,48 @@
 			path = EditView;
 			sourceTree = "<group>";
 		};
+		354593782A585025007E539C /* WatchToDoList Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				354593792A585025007E539C /* WatchToDoListApp.swift */,
+				3545937B2A585025007E539C /* ContentView.swift */,
+				354593972A58599F007E539C /* AddItemView.swift */,
+				3545937D2A585027007E539C /* Assets.xcassets */,
+				3545937F2A585027007E539C /* Preview Content */,
+			);
+			path = "WatchToDoList Watch App";
+			sourceTree = "<group>";
+		};
+		3545937F2A585027007E539C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				354593802A585027007E539C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		354593AC2A5BB7A7007E539C /* WatchConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				354593AD2A5BB7B5007E539C /* WatchConnectivityManager.swift */,
+			);
+			path = WatchConnectivity;
+			sourceTree = "<group>";
+		};
+		354593F12A5C1413007E539C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		35E70B5E2A114BC500B6BF57 = {
 			isa = PBXGroup;
 			children = (
 				35E70B692A114BC500B6BF57 /* ToDoList */,
+				354593782A585025007E539C /* WatchToDoList Watch App */,
 				35E70B682A114BC500B6BF57 /* Products */,
+				354593F12A5C1413007E539C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				35E70B672A114BC500B6BF57 /* ToDoList.app */,
+				354593772A585025007E539C /* WatchToDoList Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +215,7 @@
 			children = (
 				353699932A1230480069E151 /* Info.plist */,
 				35E70B6A2A114BC500B6BF57 /* ToDoListApp.swift */,
+				354593AC2A5BB7A7007E539C /* WatchConnectivity */,
 				35F1D05A2A137C0D00EA05D0 /* Utils */,
 				35F1D0582A137BC300EA05D0 /* LocalStorage */,
 				35F1D0472A136AB300EA05D0 /* Network */,
@@ -180,6 +277,7 @@
 				35CA4D832A11E462005E96CE /* ToDoItem.swift */,
 				35F1D04E2A136F5F00EA05D0 /* Quote.swift */,
 				354593702A546C88007E539C /* ItemList.swift */,
+				354593A92A5BB4F4007E539C /* AlertMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				353699912A122F8C0069E151 /* LocationManager.swift */,
+				3545939D2A5B125D007E539C /* LocationAdaptor.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -231,6 +330,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		354593762A585025007E539C /* WatchToDoList Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 354593842A585027007E539C /* Build configuration list for PBXNativeTarget "WatchToDoList Watch App" */;
+			buildPhases = (
+				354593732A585025007E539C /* Sources */,
+				354593742A585025007E539C /* Frameworks */,
+				354593752A585025007E539C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchToDoList Watch App";
+			productName = "WatchToDoList Watch App";
+			productReference = 354593772A585025007E539C /* WatchToDoList Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		35E70B662A114BC500B6BF57 /* ToDoList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35E70B752A114BC600B6BF57 /* Build configuration list for PBXNativeTarget "ToDoList" */;
@@ -238,10 +354,12 @@
 				35E70B632A114BC500B6BF57 /* Sources */,
 				35E70B642A114BC500B6BF57 /* Frameworks */,
 				35E70B652A114BC500B6BF57 /* Resources */,
+				354593F52A5C1413007E539C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				354593F42A5C1413007E539C /* PBXTargetDependency */,
 			);
 			name = ToDoList;
 			packageProductDependencies = (
@@ -262,6 +380,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					354593762A585025007E539C = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					35E70B662A114BC500B6BF57 = {
 						CreatedOnToolsVersion = 14.2;
 						LastSwiftMigration = 1420;
@@ -286,11 +407,21 @@
 			projectRoot = "";
 			targets = (
 				35E70B662A114BC500B6BF57 /* ToDoList */,
+				354593762A585025007E539C /* WatchToDoList Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		354593752A585025007E539C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				354593812A585027007E539C /* Preview Assets.xcassets in Resources */,
+				3545937E2A585027007E539C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35E70B652A114BC500B6BF57 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,12 +434,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		354593732A585025007E539C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				354593852A58510A007E539C /* ToDoListApp.swift in Sources */,
+				354593882A58511A007E539C /* ToDoItem.swift in Sources */,
+				354593AB2A5BB4F4007E539C /* AlertMessage.swift in Sources */,
+				354593A02A5B149A007E539C /* LocationManager.swift in Sources */,
+				354593892A58511E007E539C /* ItemList.swift in Sources */,
+				3545937C2A585025007E539C /* ContentView.swift in Sources */,
+				3545939F2A5B142E007E539C /* LocationAdaptor.swift in Sources */,
+				354593982A58599F007E539C /* AddItemView.swift in Sources */,
+				3545937A2A585025007E539C /* WatchToDoListApp.swift in Sources */,
+				3545938A2A585121007E539C /* ToDoList.xcdatamodeld in Sources */,
+				354593AF2A5BB7B5007E539C /* WatchConnectivityManager.swift in Sources */,
+				354593992A59BAD6007E539C /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35E70B632A114BC500B6BF57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				35F1D0A52A149ABB00EA05D0 /* daily_quote.cpp in Sources */,
 				354593662A5443FE007E539C /* EditItemViewController.swift in Sources */,
+				3545939E2A5B125D007E539C /* LocationAdaptor.swift in Sources */,
 				35E70B6D2A114BC500B6BF57 /* ContentView.swift in Sources */,
 				35F1D0512A1379A700EA05D0 /* QuoteRow.swift in Sources */,
 				35F1D04B2A136B0600EA05D0 /* QuotableRouter.swift in Sources */,
@@ -328,16 +479,90 @@
 				3545936D2A5450F3007E539C /* ItemTableViewCell.swift in Sources */,
 				35F1D0462A136A2D00EA05D0 /* EndPointType.swift in Sources */,
 				35CA4D882A12126A005E96CE /* ToDoListViewModel.swift in Sources */,
+				354593AA2A5BB4F4007E539C /* AlertMessage.swift in Sources */,
 				35F1D04D2A136C1D00EA05D0 /* NetworkManager.swift in Sources */,
 				353699982A127B200069E151 /* ToDoList.xcdatamodeld in Sources */,
 				3536999A2A1352360069E151 /* EditItemView.swift in Sources */,
+				354593AE2A5BB7B5007E539C /* WatchConnectivityManager.swift in Sources */,
 				3545936F2A545D3C007E539C /* DatePickerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		354593F42A5C1413007E539C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 354593762A585025007E539C /* WatchToDoList Watch App */;
+			targetProxy = 354593F32A5C1413007E539C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		354593822A585027007E539C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchToDoList Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 96D753D9GJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchToDoList;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs your location when adding to do list item";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.lei.ToDoList;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lei.ToDoList.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		354593832A585027007E539C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchToDoList Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 96D753D9GJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchToDoList;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs your location when adding to do list item";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.lei.ToDoList;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lei.ToDoList.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 		35E70B732A114BC600B6BF57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -524,6 +749,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		354593842A585027007E539C /* Build configuration list for PBXNativeTarget "WatchToDoList Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				354593822A585027007E539C /* Debug */,
+				354593832A585027007E539C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		35E70B622A114BC500B6BF57 /* Build configuration list for PBXProject "ToDoList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

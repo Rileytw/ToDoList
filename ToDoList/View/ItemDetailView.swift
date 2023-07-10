@@ -14,6 +14,8 @@ struct ItemDetailView: View {
     @Binding var createdDate: Date
     @Binding var dueDate: Date
     @ObservedObject var viewModel: ToDoListViewModel
+    @ObservedObject var locationServiceAdaptor: LocationServiceAdaptor
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -48,11 +50,11 @@ struct ItemDetailView: View {
                 Text(ItemList.location.titleName)
                     .font(.title3)
                     .bold()
-                if viewModel.location.isEmpty {
+                if locationServiceAdaptor.location.isEmpty {
                     TextField("Location...", text: $location)
                     
                 } else {
-                    TextField("Location: \(viewModel.location)", text: $location)
+                    TextField("Location: \(locationServiceAdaptor.location)", text: $location)
                 }
                 
                 Divider()
@@ -62,7 +64,7 @@ struct ItemDetailView: View {
         .frame(maxWidth: .infinity, alignment: .top)
         .padding()
         .onAppear {
-            viewModel.getLocation()
+            locationServiceAdaptor.getLocation()
         }
     }
 }
@@ -76,7 +78,8 @@ struct ItemDetailView_Previews: PreviewProvider {
             location: .constant("Sample Location"),
             createdDate: .constant(Date()),
             dueDate: .constant(Calendar.current.date(byAdding: .day, value: 1, to: Date())!),
-            viewModel: ToDoListViewModel()
+            viewModel: ToDoListViewModel(),
+            locationServiceAdaptor: LocationServiceAdaptor()
         )
     }
 }
