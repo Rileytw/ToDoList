@@ -76,7 +76,6 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         let item = decodeItemData(ToDoItem.self, from: itemData)
         DispatchQueue.main.async { [weak self] in
             self?.item = item
-            
         }
     }
     

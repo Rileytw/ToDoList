@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddItemView: View {
     @ObservedObject var locationServiceAdaptor = LocationServiceAdaptor()
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     
     @State private var title: String = ""
     @State private var description: String = ""
@@ -83,8 +84,16 @@ struct AddItemView: View {
                                createdDate: Utils.convertStringToDate(createdDateString) ?? Date(),
                                dueDate: Utils.convertStringToDate(dueDateString) ?? Date(),
                                location: newLocation)
-        print("===new item:\(newItem)")
-        WatchConnectivityManager.shared.sendItem(newItem)
+        connectivityManager.sendItem(newItem)
+        cleanItemData()
+    }
+    
+    private func cleanItemData() {
+        title = ""
+        description = ""
+        createdDateString = ""
+        dueDateString = ""
+        location = ""
     }
     
 }
