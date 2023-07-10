@@ -14,6 +14,7 @@ class ToDoListViewModel: ObservableObject {
     @Published var isError: Bool = false
     private var listItems: [ListItem] = []
     var errorMessage: String?
+    var alertTitle: String?
     
     let localDataManager = LocalDataManager()
     
@@ -34,7 +35,8 @@ class ToDoListViewModel: ObservableObject {
                 self?.fetchLocalData()
                 self?.isError = false
             case .failure(let error):
-                self?.errorMessage = ErrorMessage.addLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.errorMessage = AlertMessage.addLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.alertTitle = AlertMessage.addLocalDataFailed.title
                 self?.isError = true
             }
         }
@@ -48,7 +50,8 @@ class ToDoListViewModel: ObservableObject {
                 self?.todoList = self?.transferLocalData(localItems: items) ?? []
                 self?.isError = false
             case .failure(let error):
-                self?.errorMessage = ErrorMessage.fetchLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.errorMessage = AlertMessage.fetchLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.alertTitle = AlertMessage.fetchLocalDataFailed.title
                 self?.isError = true
             }
         }
@@ -77,7 +80,8 @@ class ToDoListViewModel: ObservableObject {
                 self?.fetchLocalData()
                 self?.isError = false
             case .failure(let error):
-                self?.errorMessage = ErrorMessage.deleteLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.errorMessage = AlertMessage.deleteLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.alertTitle = AlertMessage.deleteLocalDataFailed.title
                 self?.isError = true
             }
         }
@@ -96,7 +100,8 @@ class ToDoListViewModel: ObservableObject {
                 self?.fetchLocalData()
                 self?.isError = false
             case .failure(let error):
-                self?.errorMessage = ErrorMessage.editLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.errorMessage = AlertMessage.editLocalDataFailed.message + "\n \(error.localizedDescription)"
+                self?.alertTitle = AlertMessage.editLocalDataFailed.title
                 self?.isError = true
             }
         }
@@ -111,10 +116,29 @@ class ToDoListViewModel: ObservableObject {
                 self?.isError = false
             case .failure(let error):
                 let api = router.baseURL + router.path
-                self?.errorMessage = ErrorMessage.fetchAPIDataFailed(api: api).message + "\n \(error.localizedDescription)"
+                self?.errorMessage = AlertMessage.fetchAPIDataFailed(api: api).message + "\n \(error.localizedDescription)"
+                self?.alertTitle = AlertMessage.fetchAPIDataFailed(api: api).title
                 self?.isError = true
             }
         }
+    }
+    
+    func checkIsToDoListEmpty() {
+        self.isError = todoList.isEmpty ? true : false
+        self.alertTitle = AlertMessage.emptyData.title
+        self.errorMessage = AlertMessage.emptyData.message
+    }
+    
+    func sendLocationErrorMessage(errorMessage: String) {
+        self.isError = true
+        self.alertTitle = AlertMessage.getLocationFailed.title
+        self.errorMessage =  AlertMessage.getLocationFailed.message + errorMessage
+    }
+    
+    func sendWatchOSConnectionErrorMessage(errorMessage: String) {
+        self.isError = true
+        self.alertTitle = AlertMessage.watchOSConnectFailed.title
+        self.errorMessage =  errorMessage
     }
 }
 

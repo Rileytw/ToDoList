@@ -12,7 +12,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
     static let shared = WatchConnectivityManager()
     @Published var item: ToDoItem? = nil
     @Published var isError: Bool = false
-    var errorMessage: String?
+    @Published var errorMessage: String?
     
     private override init() {
         super.init()
@@ -44,7 +44,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         
         WCSession.default.sendMessage([itemDataKey: itemData], replyHandler: nil) { [weak self] error in
             self?.isError = true
-            self?.errorMessage = error.localizedDescription
+            self?.errorMessage = AlertMessage.watchOSConnectFailed.message + "\n \(error.localizedDescription)"
         }
     }
     
@@ -54,7 +54,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
             return data
         } catch {
             self.isError = true
-            self.errorMessage = error.localizedDescription
+            self.errorMessage = AlertMessage.dataEncodeFailed.message + "\n \(error.localizedDescription)"
             return nil
         }
         
@@ -66,7 +66,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
             return object
         } catch {
             self.isError = true
-            self.errorMessage = error.localizedDescription
+            self.errorMessage = AlertMessage.dataDecodeFailed.message + "\n \(error.localizedDescription)" 
             return nil
         }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isListEmpty = false
+    @State private var showAlert: Bool = false
     @State private var isFistAppear = true
     @ObservedObject var viewModel: ToDoListViewModel = ToDoListViewModel()
     @ObservedObject var locationServiceAdaptor = LocationServiceAdaptor()
@@ -54,31 +54,34 @@ struct ContentView: View {
             }
             .onAppear {
                 viewModel.fetchLocalData()
-                
-                isListEmpty = viewModel.todoList.isEmpty ? true : false
+                viewModel.checkIsToDoListEmpty()
                 
                 if isFistAppear {
                     viewModel.fetchQutableData()
                     isFistAppear = false
                 }
             }
-            .alert(isPresented: $viewModel.isError) {
-                Alert(title: Text("Error Message"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
-            }
-            .alert(isPresented: $locationServiceAdaptor.isError) {
-                Alert(title: Text("Error Message"), message: Text(locationServiceAdaptor.errorMessage ?? ""), dismissButton: .default(Text("OK")))
-            }
-            .alert(isPresented: $connectivityManager.isError) {
-                Alert(title: Text("Error Message"), message: Text(connectivityManager.errorMessage ?? ""), dismissButton: .default(Text("OK")))
-            }
-            .alert(isPresented: $isListEmpty) {
-                Alert(title: Text("Hint"), message: Text("Tap ➕ button to add to do item!"), dismissButton: .default(Text("OK")))
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text(viewModel.alertTitle ?? "Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
             }
         }
         .onReceive(connectivityManager.$item) { item in
             guard let item = item else { return }
             self.connectWatchOSData(watchOSItem: item)
             viewModel.fetchLocalData()
+        }
+        .onReceive(locationServiceAdaptor.$errorMessage) { errorMessage in
+            guard let errorMessage = errorMessage else { return }
+            viewModel.sendLocationErrorMessage(errorMessage: errorMessage)
+        }
+        .onReceive(connectivityManager.$errorMessage) { errorMessage in
+            guard let errorMessage = errorMessage else { return }
+            viewModel.sendWatchOSConnectionErrorMessage(errorMessage: errorMessage)
+        }
+        .onReceive(viewModel.$isError) { isError in
+            if isError {
+                self.showAlert = isError
+            }
         }
     }
     

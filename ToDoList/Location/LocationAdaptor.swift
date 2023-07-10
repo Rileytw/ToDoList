@@ -17,7 +17,7 @@ protocol LocationService {
 class LocationServiceAdaptor: LocationService {
     @Published var location: String = ""
     @Published var isError: Bool = false
-    var errorMessage: String?
+    @Published var errorMessage: String?
     
     let locationManager = LocationManager()
     
@@ -37,7 +37,7 @@ extension LocationServiceAdaptor: LocationDelegate {
     
     func locationRequestFailed(error: Error) {
         self.isError = true
-        self.errorMessage = ErrorMessage.getLocationFailed.message + "\n \(error.localizedDescription)"
+        self.errorMessage = AlertMessage.getLocationFailed.message + "\n \(error.localizedDescription)"
     }
 }
 
