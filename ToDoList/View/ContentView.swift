@@ -13,9 +13,12 @@ struct ContentView: View {
     @ObservedObject var viewModel: ToDoListViewModel = ToDoListViewModel()
     @ObservedObject var locationServiceAdaptor = LocationServiceAdaptor()
     
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
+    
     var body: some View {
         NavigationView {
             List {
+                Text(connectivityManager.item?.title ?? "")
                 ForEach(ContentViewSection.allCases, id: \.self) { section in
                     Section(header: Text(section.title)
                         .font(.title3)) {
@@ -65,6 +68,9 @@ struct ContentView: View {
             }
             .alert(isPresented: $locationServiceAdaptor.isError) {
                 Alert(title: Text("Error Message"), message: Text(locationServiceAdaptor.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            }
+            .alert(isPresented: $connectivityManager.isError) {
+                Alert(title: Text("Error Message"), message: Text(connectivityManager.errorMessage ?? ""), dismissButton: .default(Text("OK")))
             }
             .alert(isPresented: $isListEmpty) {
                 Alert(title: Text("Hint"), message: Text("Tap ➕ button to add to do item!"), dismissButton: .default(Text("OK")))

@@ -17,7 +17,7 @@ struct AddItemView: View {
     @State private var location: String = ""
     
     var body: some View {
-        List {
+        ScrollView {
             VStack(alignment: .leading) {
                 Group {
                     Text(ItemList.title.titleName)
@@ -55,6 +55,8 @@ struct AddItemView: View {
                     Divider()
                 }
                 
+                Spacer()
+                
                 HStack {
                     Spacer()
                     Button(action: {
@@ -82,7 +84,7 @@ struct AddItemView: View {
                                dueDate: Utils.convertStringToDate(dueDateString) ?? Date(),
                                location: newLocation)
         print("===new item:\(newItem)")
-        
+        WatchConnectivityManager.shared.sendItem(newItem)
     }
     
 }
