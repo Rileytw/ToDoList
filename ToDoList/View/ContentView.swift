@@ -18,7 +18,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Text(connectivityManager.item?.title ?? "")
                 ForEach(ContentViewSection.allCases, id: \.self) { section in
                     Section(header: Text(section.title)
                         .font(.title3)) {
@@ -76,6 +75,11 @@ struct ContentView: View {
                 Alert(title: Text("Hint"), message: Text("Tap ➕ button to add to do item!"), dismissButton: .default(Text("OK")))
             }
         }
+        .onReceive(connectivityManager.$item) { item in
+            guard let item = item else { return }
+            self.connectWatchOSData(watchOSItem: item)
+            viewModel.fetchLocalData()
+        }
     }
     
     func deleteItem(at offsets: IndexSet) {
@@ -83,6 +87,10 @@ struct ContentView: View {
             let deltedItem = viewModel.todoList[index]
             self.viewModel.deleteLocalData(toDoItem: deltedItem)
         }
+    }
+    
+    private func connectWatchOSData(watchOSItem: ToDoItem) {
+        viewModel.addNewItem(newItem: watchOSItem)
     }
 }
 
